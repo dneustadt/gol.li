@@ -82,11 +82,7 @@ abstract class ControllerAbstract implements ControllerInterface
             $this->setTemplate('regular/index.php');
         }
 
-        ob_start();
-        include $this->getTemplate();
-        $body = ob_get_clean();
-
-        $this->getResponse()->setBody($body);
+        $this->getResponse()->setBody($this->readTemplate($data));
 
         return $this->getResponse();
     }
@@ -141,5 +137,28 @@ abstract class ControllerAbstract implements ControllerInterface
     protected function setTemplate($template)
     {
         $this->__template = $this->getRequest()->getAppPath('Views') . DIRECTORY_SEPARATOR . $template;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return string
+     *
+     * @throws \Exception
+     */
+    private function readTemplate($data = [])
+    {
+        if (!is_array($data)) {
+            throw new \Exception(
+                sprintf(
+                    '%sAction must return array',
+                    $this->getRequest()->getActionName()
+                )
+            );
+        }
+
+        ob_start();
+        include $this->getTemplate();
+        return ob_get_clean();
     }
 }
