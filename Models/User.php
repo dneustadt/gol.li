@@ -6,7 +6,7 @@ class User implements ModelInterface
 {
     const TABLE = 'users';
 
-    const UPDATE_CONDITION = 'id=';
+    const PRIMARY_INDEX_OPERATOR = 'id=';
 
     /**
      * @var int
@@ -157,8 +157,8 @@ class User implements ModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getUpdateCondition()
+    public function getPrimaryIndexCondition()
     {
-        return self::UPDATE_CONDITION . $this->getId();
+        return self::PRIMARY_INDEX_OPERATOR . $this->getId();
     }
 }

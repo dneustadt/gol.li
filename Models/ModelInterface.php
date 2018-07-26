@@ -17,5 +17,5 @@ interface ModelInterface
     /**
      * @return string
      */
-    public function getUpdateCondition();
+    public function getPrimaryIndexCondition();
 }
