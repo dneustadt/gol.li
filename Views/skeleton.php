@@ -9,7 +9,7 @@
     <body>
         <header class="wrapper">
             <section class="container">
-                <h1><?= @$data['title']; ?></h1>
+                <h1><a href="<?= @$data['base_path']; ?>/">gol.li</a></h1>
             </section>
         </header>
 

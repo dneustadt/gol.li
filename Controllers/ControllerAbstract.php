@@ -185,7 +185,7 @@ abstract class ControllerAbstract implements ControllerInterface
             $password = $this->getRequest()->getPost('_password');
 
             $sql = 'SELECT `id`, `password` FROM `users` WHERE `username` = :username';
-            $sql = $isAdmin ? $sql .= ' AND `admin` = 1' : $sql;
+            $sql = $isAdmin ? $sql . ' AND `admin` = 1' : $sql;
 
             $stmt = $this->getDb()->prepare($sql);
 
@@ -202,6 +202,7 @@ abstract class ControllerAbstract implements ControllerInterface
                 $user = $this->getDb()->find($user);
 
                 $this->getSession()->set('userId', $user->getId());
+                $this->getSession()->set('username', $user->getUsername());
                 $this->getSession()->set('isAdmin', $user->isAdmin());
 
                 return $user;
@@ -237,6 +238,7 @@ abstract class ControllerAbstract implements ControllerInterface
         $data['template'] = $this->getTemplate();
         $data['base_path'] = $this->getRequest()->getBasePath();
         $data['is_loggedin'] = $this->isLoggedIn();
+        $data['username'] = $this->getSession()->get('username');
 
         ob_start();
         include $this->getRequest()->getAppPath('Views') .
