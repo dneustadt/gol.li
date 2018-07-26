@@ -2,8 +2,6 @@
 
 namespace Golli\Controllers;
 
-use Golli\Models\User;
-
 class Logout extends ControllerAbstract
 {
     public function indexAction()

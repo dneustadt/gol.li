@@ -168,6 +168,7 @@ class User implements ModelInterface
             'sessionID' => $this->getSessionID(),
         ];
     }
+
     /**
      * {@inheritdoc}
      */
