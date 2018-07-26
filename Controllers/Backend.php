@@ -11,7 +11,13 @@ class Backend extends ControllerAbstract
      */
     public function indexAction()
     {
-        $this->redirect('backend', 'login');
+        if (!$this->isLoggedIn() || !$this->getSession()->get('isAdmin')) {
+            $this->redirect('backend', 'login');
+        }
+
+        return [
+            'title' => 'gol.li - backend',
+        ];
     }
 
     /**
@@ -19,14 +25,25 @@ class Backend extends ControllerAbstract
      */
     public function loginAction()
     {
-        $user = $this->login();
+        if ($this->isLoggedIn() && $this->getSession()->get('isAdmin')) {
+            $this->redirect('backend', 'index');
+        }
+
+        $user = $this->login(true);
 
         if ($user instanceof User) {
-            var_dump($user->getId());exit();
+            $this->redirect('backend', 'index');
         }
 
         return [
             'title' => 'gol.li - backend',
         ];
+    }
+
+    public function logoutAction()
+    {
+        session_destroy();
+
+        $this->redirect('backend', 'login');
     }
 }

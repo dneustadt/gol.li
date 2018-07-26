@@ -124,11 +124,11 @@ class User implements ModelInterface
     }
 
     /**
-     * @return int
+     * @return bool
      */
-    public function getAdmin()
+    public function isAdmin()
     {
-        return $this->admin;
+        return (bool) $this->admin;
     }
 
     /**

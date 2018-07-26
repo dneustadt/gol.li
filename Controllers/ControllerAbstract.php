@@ -164,15 +164,18 @@ abstract class ControllerAbstract implements ControllerInterface
     }
 
     /**
-     * @return bool|\Golli\Models\ModelInterface|User
+     * @param bool $isAdmin
+     *
+     * @return bool|User
      */
-    protected function login()
+    protected function login($isAdmin = false)
     {
         if ($this->getRequest()->isPost()) {
             $username = $this->getRequest()->getPost('_username');
             $password = $this->getRequest()->getPost('_password');
 
             $sql = 'SELECT `id`, `password` FROM `users` WHERE `username` = :username';
+            $sql = $isAdmin ? $sql .= ' AND `admin` = 1' : $sql;
 
             $stmt = $this->getDb()->prepare($sql);
 
@@ -185,11 +188,22 @@ abstract class ControllerAbstract implements ControllerInterface
                 $user = new User();
                 $user->setId($idPassword['id']);
 
-                return $this->getDb()->find($user);
+                /** @var User $user */
+                $user = $this->getDb()->find($user);
+
+                $this->getSession()->set('userId', $user->getId());
+                $this->getSession()->set('isAdmin', $user->isAdmin());
+
+                return $user;
             }
         }
 
         return false;
+    }
+
+    protected function isLoggedIn()
+    {
+        return !empty($this->getSession()->get('userId'));
     }
 
     /**

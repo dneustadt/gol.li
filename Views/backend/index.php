@@ -1,0 +1,1 @@
+<a href="<?= @$data['base_path']; ?>/backend/logout" class="button">Logout</a>
