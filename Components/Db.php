@@ -18,6 +18,8 @@ class Db extends \PDO
             getenv('DB_USERNAME'),
             getenv('DB_PASSWORD')
         );
+
+        $this->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
     /**
@@ -25,19 +27,8 @@ class Db extends \PDO
      */
     public function insert(ModelInterface $model)
     {
-        $keys = array_keys($model->getData());
-        $columns = array_map(
-            function ($column) {
-                return "`{$column}`";
-            },
-            $keys
-        );
-        $placeholders = array_map(
-            function ($placeholder) {
-                return ":{$placeholder}";
-            },
-            $keys
-        );
+        $columns = $this->getColumns($model);
+        $placeholders = $this->getPlaceholders($model);
 
         $sql = sprintf(
             'INSERT INTO %s (%s) VALUES (%s)',
@@ -52,5 +43,67 @@ class Db extends \PDO
         }
 
         $stmt->execute();
+    }
+
+    public function update(ModelInterface $model)
+    {
+        $columns = $this->getColumns($model);
+        $placeholders = $this->getPlaceholders($model);
+
+        $columnPlaceholders = array_map(
+            function ($column, $placeholder) {
+                return "{$column} = $placeholder";
+            },
+            $columns,
+            $placeholders
+        );
+
+        $sql = sprintf(
+            'UPDATE %s SET %s WHERE %s',
+            "`{$model->getTable()}`",
+            join(',', $columnPlaceholders),
+            $model->getPrimaryIndexCondition()
+        );
+        $stmt = $this->prepare($sql);
+
+        foreach ($model->getData() as $placeholder => $value) {
+            $stmt->bindValue(":{$placeholder}", $value);
+        }
+
+        $stmt->execute();
+    }
+
+    /**
+     * @param ModelInterface $model
+     *
+     * @return array
+     */
+    private function getColumns(ModelInterface $model)
+    {
+        $keys = array_keys($model->getData());
+
+        return array_map(
+            function ($column) {
+                return "`{$column}`";
+            },
+            $keys
+        );
+    }
+
+    /**
+     * @param ModelInterface $model
+     *
+     * @return array
+     */
+    private function getPlaceholders(ModelInterface $model)
+    {
+        $keys = array_keys($model->getData());
+
+        return array_map(
+            function ($placeholder) {
+                return ":{$placeholder}";
+            },
+            $keys
+        );
     }
 }

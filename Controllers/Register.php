@@ -19,8 +19,14 @@ class Register extends ControllerAbstract
             $user->setUsername($post['_username']);
             $user->setEmail($post['_email']);
             $user->setPassword($post['_password']);
+            $user->setSessionID($this->getSession()->getSessionId());
 
             $this->getDb()->insert($user);
+
+            $user->setId($this->getDb()->lastInsertId());
+            $user->setVerified(1);
+
+            $this->getDb()->update($user);
         }
 
         return [
