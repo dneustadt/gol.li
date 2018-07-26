@@ -45,6 +45,9 @@ class Db extends \PDO
         $stmt->execute();
     }
 
+    /**
+     * @param ModelInterface $model
+     */
     public function update(ModelInterface $model)
     {
         $columns = $this->getColumns($model);
@@ -71,6 +74,32 @@ class Db extends \PDO
         }
 
         $stmt->execute();
+    }
+
+    /**
+     * @param ModelInterface $model
+     *
+     * @return ModelInterface
+     */
+    public function find(ModelInterface $model)
+    {
+        $sql = sprintf(
+            'SELECT * FROM %s WHERE %s LIMIT 1',
+            "`{$model->getTable()}`",
+            $model->getPrimaryIndexCondition()
+        );
+        $stmt = $this->prepare($sql);
+
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        foreach ($result as $key => $value) {
+            $method = 'set' . ucfirst($key);
+            if (method_exists($model, $method)) {
+                $model->$method($value);
+            }
+        }
+
+        return $model;
     }
 
     /**
