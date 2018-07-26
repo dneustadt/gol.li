@@ -10,6 +10,7 @@ class Regular extends ControllerAbstract
     public function indexAction()
     {
         return [
+            'title' => 'gol.li',
             'name' => 'Foobar',
         ];
     }

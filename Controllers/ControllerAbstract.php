@@ -9,6 +9,8 @@ use Golli\Components\Session;
 
 abstract class ControllerAbstract implements ControllerInterface
 {
+    const TEMPLATE_SKELETON = 'skeleton.php';
+
     /**
      * @var string|null
      */
@@ -136,15 +138,15 @@ abstract class ControllerAbstract implements ControllerInterface
      */
     protected function setTemplate($template)
     {
-        $this->__template = $this->getRequest()->getAppPath('Views') . DIRECTORY_SEPARATOR . $template;
+        $this->__template = $template;
     }
 
     /**
      * @param array $data
      *
-     * @return string
-     *
      * @throws \Exception
+     *
+     * @return string
      */
     private function readTemplate($data = [])
     {
@@ -157,8 +159,11 @@ abstract class ControllerAbstract implements ControllerInterface
             );
         }
 
+        $data['template'] = $this->getTemplate();
+
         ob_start();
-        include $this->getTemplate();
+        include $this->getRequest()->getAppPath('Views') . DIRECTORY_SEPARATOR . self::TEMPLATE_SKELETON;
+
         return ob_get_clean();
     }
 }
