@@ -39,6 +39,11 @@ class User implements ModelInterface
     private $admin = 0;
 
     /**
+     * @var string
+     */
+    private $sessionID;
+
+    /**
      * @return int
      */
     public function getId()
@@ -127,6 +132,22 @@ class User implements ModelInterface
     }
 
     /**
+     * @return string
+     */
+    public function getSessionID()
+    {
+        return $this->sessionID;
+    }
+
+    /**
+     * @param string $sessionID
+     */
+    public function setSessionID($sessionID)
+    {
+        $this->sessionID = $sessionID;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getData()
@@ -136,6 +157,7 @@ class User implements ModelInterface
             'email' => $this->getEmail(),
             'password' => $this->getPassword(),
             'verified' => $this->getVerified(),
+            'sessionID' => $this->getSessionID(),
         ];
     }
     /**
