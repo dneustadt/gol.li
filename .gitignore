@@ -1,4 +1,5 @@
 .idea
 .DS_Store
+.env.php
 web/node_modules
 web/package-lock.json

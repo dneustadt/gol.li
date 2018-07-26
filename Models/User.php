@@ -6,7 +6,7 @@ class User implements ModelInterface
 {
     const TABLE = 'users';
 
-    const PRIMARY_INDEX = 'id';
+    const UPDATE_CONDITION = 'id=';
 
     /**
      * @var int
@@ -44,6 +44,14 @@ class User implements ModelInterface
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -137,5 +145,20 @@ class User implements ModelInterface
             'password' => $this->getPassword(),
             'verified' => $this->getVerified(),
         ];
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function getTable()
+    {
+        return self::TABLE;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUpdateCondition()
+    {
+        return self::UPDATE_CONDITION . $this->getId();
     }
 }

@@ -41,14 +41,14 @@ class Db extends \PDO
 
         $sql = sprintf(
             'INSERT INTO %s (%s) VALUES (%s)',
-            "`{$model::TABLE}`",
+            "`{$model->getTable()}`",
             join(',', $columns),
             join(',', $placeholders)
         );
         $stmt = $this->prepare($sql);
 
         foreach ($model->getData() as $placeholder => $value) {
-            $stmt->bindParam(":{$placeholder}", $value);
+            $stmt->bindValue(":{$placeholder}", $value);
         }
 
         $stmt->execute();

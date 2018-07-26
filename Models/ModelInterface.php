@@ -4,12 +4,18 @@ namespace Golli\Models;
 
 interface ModelInterface
 {
-    const TABLE = '';
-
-    const PRIMARY_INDEX = '';
-
     /**
      * @return array
      */
     public function getData();
+
+    /**
+     * @return string
+     */
+    public function getTable();
+
+    /**
+     * @return string
+     */
+    public function getUpdateCondition();
 }

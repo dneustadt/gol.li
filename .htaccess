@@ -11,6 +11,11 @@
     RewriteRule ^(.*)$ index.php [PT,L,QSA]
 </IfModule>
 
+<IfModule mod_alias.c>
+    # Restrict access to root folder files
+    RedirectMatch 404 /(autoload\.php|\.env.*)$
+</IfModule>
+
 # Disables download of configuration
 <Files ~ "\.(tpl|json|sql)$">
     # Deny all requests from Apache 2.4+.
@@ -23,3 +28,4 @@
         Deny from all
     </IfModule>
 </Files>
+
