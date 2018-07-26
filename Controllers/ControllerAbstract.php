@@ -148,6 +148,21 @@ abstract class ControllerAbstract implements ControllerInterface
     }
 
     /**
+     * @param string $controller
+     * @param string $action
+     * @param int    $responseCode
+     */
+    protected function redirect($controller, $action, $responseCode = 302)
+    {
+        header(
+            sprintf('Location: %s/%s/%s', $this->getRequest()->getBasePath(), $controller, $action),
+            true,
+            $responseCode
+        );
+        die();
+    }
+
+    /**
      * @param array $data
      *
      * @throws \Exception

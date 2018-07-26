@@ -9,7 +9,7 @@ class Backend extends ControllerAbstract
      */
     public function indexAction()
     {
-        return [];
+        $this->redirect('backend', 'login');
     }
 
     /**
