@@ -31,24 +31,20 @@ class Kernel
 
     /**
      * @throws \Exception
+     *
+     * @return Response
      */
-    public function render()
+    public function boot()
     {
-        $this->__response = $this->boot();
-
-        echo $this->__response->getBody();
+        $this->getController()->dispatch();
     }
 
     /**
      * @throws \Exception
-     *
-     * @return Response
      */
-    private function boot()
+    public function render()
     {
-        $controller = $this->getController();
-
-        return $controller->dispatch();
+        echo $this->__response->getBody();
     }
 
     /**

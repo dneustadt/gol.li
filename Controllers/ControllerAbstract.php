@@ -37,9 +37,9 @@ abstract class ControllerAbstract implements ControllerInterface
         Response $response,
         Session $session
     ) {
-        $this->__request = new Request();
-        $this->__response = new Response();
-        $this->__session = new Session();
+        $this->__request = $request;
+        $this->__response = $response;
+        $this->__session = $session;
     }
 
     /**

@@ -10,4 +10,5 @@ $loader->register();
 
 $kernel = new \Golli\Components\Kernel();
 
+$kernel->boot();
 $kernel->render();
