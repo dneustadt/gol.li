@@ -23,10 +23,16 @@ class Register extends ControllerAbstract
 
             $this->getDb()->insert($user);
 
-            $user->setId($this->getDb()->lastInsertId());
-            $user->setVerified(1);
+            //$user->setId($this->getDb()->lastInsertId());
 
-            $this->getDb()->update($user);
+            $user = $this->login();
+
+            if ($user instanceof User) {
+                $user->setVerified(1);
+                $this->getDb()->update($user);
+
+                $this->redirect($user->getUsername(), 'index');
+            }
         }
 
         return [

@@ -17,6 +17,8 @@
             </div>
         </form>
     </fieldset>
+
+    <?php include __DIR__ . '/../register/index.php'; ?>
 <?php else: ?>
     <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
 <?php endif; ?>
