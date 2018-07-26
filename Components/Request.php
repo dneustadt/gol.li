@@ -122,6 +122,14 @@ class Request
     }
 
     /**
+     * @return bool
+     */
+    public function isPost()
+    {
+        return $this->__server['REQUEST_METHOD'] === 'POST';
+    }
+
+    /**
      * @return array
      */
     private function getPathParts()

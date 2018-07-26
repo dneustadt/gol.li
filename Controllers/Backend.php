@@ -17,6 +17,8 @@ class Backend extends ControllerAbstract
      */
     public function loginAction()
     {
-        return [];
+        return [
+            'title' => 'gol.li - backend',
+        ];
     }
 }

@@ -7,16 +7,19 @@
         <link rel="stylesheet" href="<?= @$data['base_path']; ?>/web/css/dist/all.min.css">
     </head>
     <body>
-
-        <header>
+        <header class="wrapper">
+            <section class="container">
+                <h1><?= @$data['title']; ?></h1>
+            </section>
         </header>
 
-        <section>
-            <?php include @$data['template']; ?>
-        </section>
+        <main class="wrapper">
+            <section class="container">
+                <?php include @$data['template']; ?>
+            </section>
+        </main>
 
         <footer>
         </footer>
-
     </body>
 </html>
