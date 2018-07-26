@@ -40,6 +40,14 @@ class Request
     /**
      * @return string
      */
+    public function getAppPath($path = null)
+    {
+        return $path ? APP_PATH . DIRECTORY_SEPARATOR . $path : APP_PATH;
+    }
+
+    /**
+     * @return string
+     */
     public function getBasePath()
     {
         return substr(APP_PATH, strlen($this->__server['DOCUMENT_ROOT']));
@@ -52,7 +60,7 @@ class Request
     {
         $pathParts = $this->getPathParts();
 
-        return is_array($pathParts) ? $pathParts[0] : null;
+        return is_array($pathParts) ? strtolower($pathParts[0]) : null;
     }
 
     /**
@@ -62,7 +70,7 @@ class Request
     {
         $pathParts = $this->getPathParts();
 
-        return is_array($pathParts) && isset($pathParts[1]) ? $pathParts[1] : 'index';
+        return is_array($pathParts) && isset($pathParts[1]) ? strtolower($pathParts[1]) : 'index';
     }
 
     /**

@@ -6,6 +6,8 @@ class Regular extends ControllerAbstract
 {
     public function indexAction()
     {
-        $this->getResponse()->setBody('test');
+        return [
+            'name' => 'Foobar',
+        ];
     }
 }

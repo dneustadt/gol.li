@@ -56,7 +56,7 @@ class Kernel
      */
     private function getController()
     {
-        $controllerName = ucfirst(strtolower($this->__request->getControllerName()));
+        $controllerName = ucfirst($this->__request->getControllerName());
         $controllerClass = '\\Golli\\Controllers\\' . $controllerName;
 
         if (
@@ -71,9 +71,9 @@ class Kernel
         }
 
         return new Regular(
-                $this->__request,
-                $this->__response,
-                $this->__session
-            );
+            $this->__request,
+            $this->__response,
+            $this->__session
+        );
     }
 }

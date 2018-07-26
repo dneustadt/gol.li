@@ -9,6 +9,10 @@ use Golli\Components\Session;
 abstract class ControllerAbstract implements ControllerInterface
 {
     /**
+     * @var string|null
+     */
+    protected $__template = null;
+    /**
      * @var Request
      */
     private $__request;
@@ -56,9 +60,37 @@ abstract class ControllerAbstract implements ControllerInterface
                 )
             );
         }
-        $this->$actionMethod();
+
+        $data = $this->$actionMethod();
+
+        if (empty($this->__template)) {
+            $templateFile = join('/', [
+                $this->getRequest()->getControllerName(),
+                $this->getRequest()->getActionName(),
+            ]) . '.php';
+
+            $this->setTemplate($templateFile);
+        }
+
+        if (!file_exists($this->getTemplate())) {
+            $this->setTemplate('regular/index.php');
+        }
+
+        ob_start();
+        include $this->getTemplate();
+        $body = ob_get_clean();
+
+        $this->getResponse()->setBody($body);
 
         return $this->getResponse();
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTemplate()
+    {
+        return $this->__template;
     }
 
     /**
@@ -83,5 +115,13 @@ abstract class ControllerAbstract implements ControllerInterface
     protected function getSession()
     {
         return $this->__session;
+    }
+
+    /**
+     * @param string $template
+     */
+    protected function setTemplate($template)
+    {
+        $this->__template = $this->getRequest()->getAppPath('Views') . DIRECTORY_SEPARATOR . $template;
     }
 }

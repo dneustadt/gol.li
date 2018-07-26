@@ -6,6 +6,5 @@ class Backend extends ControllerAbstract
 {
     public function indexAction()
     {
-        $this->getResponse()->setBody('backend');
     }
 }
