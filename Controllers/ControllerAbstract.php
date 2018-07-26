@@ -2,6 +2,7 @@
 
 namespace Golli\Controllers;
 
+use Golli\Components\Db;
 use Golli\Components\Request;
 use Golli\Components\Response;
 use Golli\Components\Session;
@@ -26,6 +27,11 @@ abstract class ControllerAbstract implements ControllerInterface
      * @var Session
      */
     private $__session;
+
+    /**
+     * @var Db|null
+     */
+    private $__db;
 
     /**
      * @param Request  $request
@@ -86,14 +92,6 @@ abstract class ControllerAbstract implements ControllerInterface
     }
 
     /**
-     * @return null|string
-     */
-    public function getTemplate()
-    {
-        return $this->__template;
-    }
-
-    /**
      * @return Request
      */
     protected function getRequest()
@@ -115,6 +113,26 @@ abstract class ControllerAbstract implements ControllerInterface
     protected function getSession()
     {
         return $this->__session;
+    }
+
+    /**
+     * @return Db
+     */
+    protected function getDb()
+    {
+        if (!$this->__db instanceof Db) {
+            $this->__db = new Db();
+        }
+
+        return $this->__db;
+    }
+
+    /**
+     * @return null|string
+     */
+    protected function getTemplate()
+    {
+        return $this->__template;
     }
 
     /**
