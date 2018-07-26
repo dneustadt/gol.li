@@ -89,6 +89,7 @@ class Db extends \PDO
             $model->getPrimaryIndexCondition()
         );
         $stmt = $this->prepare($sql);
+        $stmt->execute();
 
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
 

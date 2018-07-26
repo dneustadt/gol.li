@@ -2,6 +2,8 @@
 
 namespace Golli\Controllers;
 
+use Golli\Models\User;
+
 class Backend extends ControllerAbstract
 {
     /**
@@ -17,6 +19,12 @@ class Backend extends ControllerAbstract
      */
     public function loginAction()
     {
+        $user = $this->login();
+
+        if ($user instanceof User) {
+            var_dump($user->getId());exit();
+        }
+
         return [
             'title' => 'gol.li - backend',
         ];

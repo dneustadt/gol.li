@@ -6,6 +6,7 @@ use Golli\Components\Db;
 use Golli\Components\Request;
 use Golli\Components\Response;
 use Golli\Components\Session;
+use Golli\Models\User;
 
 abstract class ControllerAbstract implements ControllerInterface
 {
@@ -160,6 +161,35 @@ abstract class ControllerAbstract implements ControllerInterface
             $responseCode
         );
         die();
+    }
+
+    /**
+     * @return bool|\Golli\Models\ModelInterface|User
+     */
+    protected function login()
+    {
+        if ($this->getRequest()->isPost()) {
+            $username = $this->getRequest()->getPost('_username');
+            $password = $this->getRequest()->getPost('_password');
+
+            $sql = 'SELECT `id`, `password` FROM `users` WHERE `username` = :username';
+
+            $stmt = $this->getDb()->prepare($sql);
+
+            $stmt->bindValue(':username', $username);
+            $stmt->execute();
+
+            $idPassword = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            if (!empty($idPassword) && password_verify($password, $idPassword['password'])) {
+                $user = new User();
+                $user->setId($idPassword['id']);
+
+                return $this->getDb()->find($user);
+            }
+        }
+
+        return false;
     }
 
     /**
