@@ -25,4 +25,25 @@ class Session
     {
         return session_id();
     }
+
+    /**
+     * @param string $param
+     *
+     * @return mixed
+     */
+    public function get($param)
+    {
+        return isset($this->__session[$param]) ? $this->__session[$param] : null;
+    }
+
+    /**
+     * @param string $param
+     * @param mixed  $value
+     */
+    public function set($param, $value)
+    {
+        $_SESSION[$param] = $value;
+
+        $this->__session = $_SESSION;
+    }
 }

@@ -38,6 +38,8 @@ class Request
     }
 
     /**
+     * @param string $path
+     *
      * @return string
      */
     public function getAppPath($path = null)
@@ -71,6 +73,52 @@ class Request
         $pathParts = $this->getPathParts();
 
         return is_array($pathParts) && isset($pathParts[1]) ? strtolower($pathParts[1]) : 'index';
+    }
+
+    /**
+     * @param string|null $param
+     *
+     * @return mixed
+     */
+    public function get($param = null)
+    {
+        if (empty($param)) {
+            return $this->__get;
+        }
+
+        return isset($this->__get[$param]) ? $this->__get[$param] : null;
+    }
+
+    /**
+     * @param string $param
+     * @param mixed  $value
+     */
+    public function set($param, $value)
+    {
+        $this->__get[$param] = $value;
+    }
+
+    /**
+     * @param string|null $param
+     *
+     * @return mixed
+     */
+    public function getPost($param = null)
+    {
+        if (empty($param)) {
+            return $this->__post;
+        }
+
+        return isset($this->__post[$param]) ? $this->__post[$param] : null;
+    }
+
+    /**
+     * @param string $param
+     * @param mixed  $value
+     */
+    public function setPost($param, $value)
+    {
+        $this->__post[$param] = $value;
     }
 
     /**
