@@ -12,7 +12,7 @@ class Register extends ControllerAbstract
     public function indexAction()
     {
         $post = $this->getRequest()->getPost();
-        $error = [];
+        $error = $this->validate($post);
 
         if (empty($error) && $this->getRequest()->isPost()) {
             $user = new User();
@@ -39,5 +39,29 @@ class Register extends ControllerAbstract
             'title' => 'gol.li - register',
             'error' => $error,
         ];
+    }
+
+    /**
+     * @param array $post
+     *
+     * @return array
+     */
+    private function validate($post)
+    {
+        $error = [];
+
+        if (
+            empty($post['_username']) ||
+            empty($post['_password']) ||
+            empty($post['_password_confirm'])
+        ) {
+            $error['all'] = 'Please provide all necessary information';
+        } else {
+            if (preg_match("/[a-z0-9_]/", $post['_username'])) {
+                $error['username'] = 'The username must be all lowercase characters or numbers and may further contain only underscores';
+            }
+        }
+
+        return $error;
     }
 }
