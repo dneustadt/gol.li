@@ -39,14 +39,6 @@ class User implements ModelInterface
     private $admin = 0;
 
     /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return int
      */
     public function getId()
