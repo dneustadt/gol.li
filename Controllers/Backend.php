@@ -11,4 +11,12 @@ class Backend extends ControllerAbstract
     {
         return [];
     }
+
+    /**
+     * @return array
+     */
+    public function loginAction()
+    {
+        return [];
+    }
 }

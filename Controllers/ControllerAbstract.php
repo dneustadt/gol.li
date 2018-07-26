@@ -80,7 +80,13 @@ abstract class ControllerAbstract implements ControllerInterface
             $this->setTemplate($templateFile);
         }
 
-        if (!file_exists($this->getTemplate())) {
+        if (
+            !file_exists(
+                $this->getRequest()->getAppPath('Views') .
+                DIRECTORY_SEPARATOR .
+                $this->getTemplate()
+            )
+        ) {
             $this->setTemplate('regular/index.php');
         }
 
@@ -163,7 +169,9 @@ abstract class ControllerAbstract implements ControllerInterface
         $data['base_path'] = $this->getRequest()->getBasePath();
 
         ob_start();
-        include $this->getRequest()->getAppPath('Views') . DIRECTORY_SEPARATOR . self::TEMPLATE_SKELETON;
+        include $this->getRequest()->getAppPath('Views') .
+            DIRECTORY_SEPARATOR .
+            self::TEMPLATE_SKELETON;
 
         return ob_get_clean();
     }
