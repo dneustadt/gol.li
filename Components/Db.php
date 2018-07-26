@@ -8,7 +8,7 @@ class Db extends \PDO
     {
         parent::__construct(
             sprintf(
-                "mysql:host=%s;port=%s;dbname=%s",
+                'mysql:host=%s;port=%s;dbname=%s',
                 getenv('DB_HOST'),
                 getenv('DB_PORT'),
                 getenv('DB_DATABASE')

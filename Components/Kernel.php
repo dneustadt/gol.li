@@ -31,8 +31,6 @@ class Kernel
 
     /**
      * @throws \Exception
-     *
-     * @return Response
      */
     public function boot()
     {
