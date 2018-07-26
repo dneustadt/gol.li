@@ -160,6 +160,7 @@ abstract class ControllerAbstract implements ControllerInterface
         }
 
         $data['template'] = $this->getTemplate();
+        $data['base_path'] = $this->getRequest()->getBasePath();
 
         ob_start();
         include $this->getRequest()->getAppPath('Views') . DIRECTORY_SEPARATOR . self::TEMPLATE_SKELETON;
