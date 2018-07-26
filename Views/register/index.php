@@ -14,7 +14,7 @@
             <input placeholder="Confirm Password" type="password" id="password_confirm" name="_password_confirm" required>
         </div>
         <div class="register-form--field">
-            <button type="submit" class="btn">Register</button>
+            <button type="submit">Register</button>
         </div>
     </form>
 </fieldset>

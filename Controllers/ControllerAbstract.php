@@ -155,8 +155,18 @@ abstract class ControllerAbstract implements ControllerInterface
      */
     protected function redirect($controller, $action, $responseCode = 302)
     {
+        $header = 'Location: %s/%s/%s';
+
+        if ($action === 'index') {
+            $header = 'Location: %s/%s';
+
+            if ($controller === 'regular') {
+                $header = 'Location: %s';
+            }
+        }
+
         header(
-            sprintf('Location: %s/%s/%s', $this->getRequest()->getBasePath(), $controller, $action),
+            sprintf($header, $this->getRequest()->getBasePath(), $controller, $action),
             true,
             $responseCode
         );
@@ -226,6 +236,7 @@ abstract class ControllerAbstract implements ControllerInterface
 
         $data['template'] = $this->getTemplate();
         $data['base_path'] = $this->getRequest()->getBasePath();
+        $data['is_loggedin'] = $this->isLoggedIn();
 
         ob_start();
         include $this->getRequest()->getAppPath('Views') .

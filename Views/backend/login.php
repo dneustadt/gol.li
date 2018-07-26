@@ -8,7 +8,7 @@
             <input placeholder="Password" type="password" id="password" name="_password" required>
         </div>
         <div class="login-form--field">
-            <button type="submit" class="btn">Login</button>
+            <button type="submit">Login</button>
         </div>
     </form>
 </fieldset>
