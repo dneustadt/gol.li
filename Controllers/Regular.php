@@ -32,11 +32,13 @@ class Regular extends ControllerAbstract
                 $this->getDb()->update($user);
             }
 
+            $services = $this->getServicesWithHandlesByUserId($user->getId());
+
             return [
                 'title' => 'gol.li - ' . $user->getUsername(),
                 'name' => $user->getUsername(),
                 'is_owner' => $isOwner,
-                'services' => $isOwner ? $this->getDb()->findAll(new Service()) : [],
+                'services' => $services,
             ];
         }
 
@@ -57,6 +59,13 @@ class Regular extends ControllerAbstract
                 $userService = new UserServices();
                 $userService->setUserID($userID);
                 $userService->setServiceID($serviceID);
+
+                if (empty($serviceValue)) {
+                    $this->getDb()->delete($userService);
+
+                    continue;
+                }
+
                 $userService->setHandle($serviceValue);
                 $userService->setPosition($position);
 
@@ -93,5 +102,26 @@ class Regular extends ControllerAbstract
     private function isOwner($userID)
     {
         return $this->getSession()->get('userId') == $userID;
+    }
+
+    /**
+     * @param $userID
+     *
+     * @return array|bool
+     */
+    private function getServicesWithHandlesByUserId($userID)
+    {
+        $sql = 'SELECT * 
+                FROM `services`
+                LEFT JOIN `user_services`
+                ON `services`.`id` = `user_services`.`serviceID` AND `user_services`.`userID` = :userId
+                ORDER BY `user_services`.`position`';
+
+        $stmt = $this->getDb()->prepare($sql);
+
+        $stmt->bindValue(':userId', $userID);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

@@ -4,16 +4,18 @@
     </h2>
     <?php if (@$data['is_owner']): ?>
         <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post" class="service-form">
-            <?php /** @var \Golli\Models\Service $service */ foreach (@$data['services'] as $service): ?>
+            <?php foreach (@$data['services'] as $service): ?>
                 <div class="row">
                     <div class="column column-20">
-                        <?= $service->getName() ?>
+                        <?= $service['name'] ?>
                     </div>
                     <div class="column url-pattern">
                         <?= sprintf(
-                            $service->getUrl(),
+                            $service['url'],
                             '</div>' .
-                            '<div class="column handle"><input type="text" name="services[' . $service->getId() . ']"></div>' .
+                            '<div class="column handle">' .
+                            '<input type="text" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
+                            '</div>' .
                             '<div class="column url-pattern">'
                         ) ?>
                     </div>

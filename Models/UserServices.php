@@ -116,6 +116,6 @@ class UserServices implements ModelInterface
      */
     public function getPrimaryIndexCondition()
     {
-        return 'userID=' . $this->getUserID() . 'AND serviceID=' . $this->getServiceID();
+        return 'userID=' . $this->getUserID() . ' AND serviceID=' . $this->getServiceID();
     }
 }
