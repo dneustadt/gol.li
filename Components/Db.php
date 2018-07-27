@@ -106,6 +106,20 @@ class Db extends \PDO
 
     /**
      * @param ModelInterface $model
+     */
+    public function delete(ModelInterface $model)
+    {
+        $sql = sprintf(
+            'DELETE FROM %s WHERE %s',
+            "`{$model->getTable()}`",
+            $model->getPrimaryIndexCondition()
+        );
+        $stmt = $this->prepare($sql);
+        $stmt->execute();
+    }
+
+    /**
+     * @param ModelInterface $model
      *
      * @return array
      */
