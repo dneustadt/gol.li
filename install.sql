@@ -20,3 +20,11 @@ CREATE TABLE `services` (
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `user_services` (
+  `userID` int(11) NOT NULL,
+  `serviceID` int(11) NOT NULL,
+  `handle` varchar(255) NOT NULL,
+  `position` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`userID`,`serviceID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

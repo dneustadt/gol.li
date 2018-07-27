@@ -28,3 +28,19 @@ select {
 .errors {
   color: $highlight-error;
 }
+
+.service-form {
+  .row {
+    .column {
+      padding: 0.7rem 1rem;
+    }
+    .column.url-pattern {
+      flex: none;
+      width: auto;
+      padding: 0.7rem 0.2rem;
+    }
+    .column.handle {
+      padding: 0;
+    }
+  }
+}

@@ -2,6 +2,7 @@
 
 namespace Golli\Controllers;
 
+use Golli\Models\Service;
 use Golli\Models\User;
 
 class Regular extends ControllerAbstract
@@ -33,7 +34,8 @@ class Regular extends ControllerAbstract
             return [
                 'title' => 'gol.li - ' . $user->getUsername(),
                 'name' => $user->getUsername(),
-                'isOwner' => $isOwner,
+                'is_owner' => $isOwner,
+                'services' => $isOwner ? $this->getDb()->findAll(new Service()) : [],
             ];
         }
 

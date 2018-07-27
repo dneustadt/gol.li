@@ -2,6 +2,26 @@
     <h2>
         <?= @$data['name']; ?>
     </h2>
+    <?php if (@$data['is_owner']): ?>
+        <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post" class="service-form">
+            <?php /** @var \Golli\Models\Service $service */ foreach (@$data['services'] as $service): ?>
+                <div class="row">
+                    <div class="column column-20">
+                        <?= $service->getName() ?>
+                    </div>
+                    <div class="column url-pattern">
+                        <?= sprintf(
+                            $service->getUrl(),
+                            '</div>' .
+                            '<div class="column handle"><input type="text" name="services[' . $service->getId() . ']"></div>' .
+                            '<div class="column url-pattern">'
+                        ) ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </form>
+        <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
+    <?php endif; ?>
 <?php else: ?>
     <?php if (!@$data['is_loggedin']): ?>
         <div class="row">

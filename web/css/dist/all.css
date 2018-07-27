@@ -618,3 +618,17 @@ select {
 .errors {
   color: #ff5544;
 }
+
+.service-form .row .column {
+  padding: 0.7rem 1rem;
+}
+
+.service-form .row .column.url-pattern {
+  flex: none;
+  width: auto;
+  padding: 0.7rem 0.2rem;
+}
+
+.service-form .row .column.handle {
+  padding: 0;
+}
