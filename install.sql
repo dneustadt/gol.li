@@ -18,6 +18,7 @@ CREATE TABLE `services` (
   `name` varchar(255) NOT NULL,
   `url` text NOT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `priority` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 

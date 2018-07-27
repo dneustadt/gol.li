@@ -19,11 +19,17 @@ class Request
      */
     private $__post;
 
+    /**
+     * @var array
+     */
+    private $__files;
+
     public function __construct()
     {
         $this->__server = $_SERVER;
         $this->__get = $_GET;
         $this->__post = $_POST;
+        $this->__files = $_FILES;
     }
 
     /**
@@ -119,6 +125,20 @@ class Request
     public function setPost($param, $value)
     {
         $this->__post[$param] = $value;
+    }
+
+    /**
+     * @param string|null $param
+     *
+     * @return mixed
+     */
+    public function getFile($param = null)
+    {
+        if (empty($param)) {
+            return $this->__files;
+        }
+
+        return isset($this->__files[$param]) ? $this->__files[$param] : null;
     }
 
     /**

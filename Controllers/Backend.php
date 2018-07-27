@@ -86,6 +86,17 @@ class Backend extends ControllerAbstract
             $service = new Service();
             $service->setName($post['_name']);
             $service->setUrl($post['_url']);
+            $service->setPriority($post['_priority']);
+
+            $file = $this->getRequest()->getFile('_image');
+            if (!empty($file['tmp_name'])) {
+                $filename = $file["name"];
+                $path = '/web/icons/' . $filename;
+
+                if (move_uploaded_file($file["tmp_name"], $this->getRequest()->getAppPath() . $path)) {
+                    $service->setImage($path);
+                }
+            }
 
             $this->getDb()->insert($service);
         }

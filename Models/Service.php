@@ -29,6 +29,11 @@ class Service implements ModelInterface
     private $image;
 
     /**
+     * @var string
+     */
+    private $priority;
+
+    /**
      * @return int
      */
     public function getId()
@@ -93,6 +98,22 @@ class Service implements ModelInterface
     }
 
     /**
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param int $priority
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = (int) $priority;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getData()
@@ -101,6 +122,7 @@ class Service implements ModelInterface
             'name' => $this->getName(),
             'url' => $this->getUrl(),
             'image' => $this->getImage(),
+            'priority' => $this->getPriority(),
         ];
     }
 

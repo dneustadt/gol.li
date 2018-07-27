@@ -3,12 +3,15 @@
 
 <fieldset>
     <legend>Service:</legend>
-    <form action="<?= @$data['base_path']; ?>/backend/addService" method="post">
+    <form action="<?= @$data['base_path']; ?>/backend/addService" method="post" enctype="multipart/form-data">
         <div class="register-form--field">
             <input placeholder="Name" type="text" id="name" name="_name" required>
         </div>
         <div class="register-form--field">
             <input placeholder="URL" type="text" id="url" name="_url" required>
+        </div>
+        <div class="register-form--field">
+            <input placeholder="Priority" type="number" id="priority" name="_priority">
         </div>
         <div class="register-form--field">
             <label for="image">Icon</label>
@@ -26,6 +29,7 @@
         <td>Icon</td>
         <td>Name</td>
         <td>URL</td>
+        <td>Priority</td>
         <td></td>
     </tr>
     </thead>
@@ -35,6 +39,7 @@
             <td><?= $service->getImage() ?></td>
             <td><?= $service->getName() ?></td>
             <td><?= $service->getUrl() ?></td>
+            <td><?= $service->getPriority() ?></td>
             <td class="action">
                 <a class="button" href="<?= @$data['base_path']; ?>/backend/deleteService?id=<?= $service->getId() ?>">Delete</a>
             </td>

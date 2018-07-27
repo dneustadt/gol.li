@@ -87,7 +87,7 @@ class UserServices implements ModelInterface
      */
     public function setPosition($position)
     {
-        $this->position = $position;
+        $this->position = (int) $position;
     }
 
     /**
