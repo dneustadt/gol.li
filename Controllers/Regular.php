@@ -31,6 +31,11 @@ class Regular extends ControllerAbstract
             /** @var User $user */
             $user = $this->getDb()->find($user);
 
+            if (!$this->getSession()->get('userId') || $this->getSession()->get('userId') != $user->getId()) {
+                $user->setHits($user->getHits() + 1);
+                $this->getDb()->update($user);
+            }
+
             return [
                 'title' => 'gol.li - ' . $user->getUsername(),
                 'name' => $user->getUsername(),

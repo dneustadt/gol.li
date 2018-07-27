@@ -3,6 +3,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` text NOT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `hits` int(11) DEFAULT '0',
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `admin` tinyint(1) DEFAULT '0',
   `sessionID` text,

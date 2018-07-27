@@ -13,7 +13,7 @@
         <tr>
             <td><a href="<?= @$data['base_path']; ?>/<?= $user->getUsername() ?>"><?= $user->getUsername() ?></a></td>
             <td><?= $user->getEmail() ?></td>
-            <td></td>
+            <td><?= $user->getHits() ?></td>
             <td><?= $user->getLastLogin() ?></td>
             <td><?= $user->getCreated() ?></td>
             <td class="action">

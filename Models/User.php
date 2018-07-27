@@ -31,6 +31,11 @@ class User implements ModelInterface
     /**
      * @var int
      */
+    private $hits = 0;
+
+    /**
+     * @var int
+     */
     private $verified = 0;
 
     /**
@@ -128,6 +133,22 @@ class User implements ModelInterface
     /**
      * @return int
      */
+    public function getHits()
+    {
+        return $this->hits;
+    }
+
+    /**
+     * @param int $hits
+     */
+    public function setHits($hits)
+    {
+        $this->hits = $hits;
+    }
+
+    /**
+     * @return int
+     */
     public function getVerified()
     {
         return $this->verified;
@@ -214,6 +235,7 @@ class User implements ModelInterface
             'username' => $this->getUsername(),
             'email' => $this->getEmail(),
             'password' => $this->getPassword(),
+            'hits' => $this->getHits(),
             'verified' => $this->getVerified(),
             'sessionID' => $this->getSessionID(),
             'created' => $this->getCreated(),
