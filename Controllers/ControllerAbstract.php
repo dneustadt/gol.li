@@ -201,6 +201,12 @@ abstract class ControllerAbstract implements ControllerInterface
                 /** @var User $user */
                 $user = $this->getDb()->find($user);
 
+                if ($this->getSession()->getSessionId() !== $user->getSessionID()) {
+                    $user->setSessionID($this->getSession()->getSessionId());
+
+                    $this->getDb()->update($user);
+                }
+
                 $this->getSession()->set('userId', $user->getId());
                 $this->getSession()->set('username', $user->getUsername());
                 $this->getSession()->set('isAdmin', $user->isAdmin());
