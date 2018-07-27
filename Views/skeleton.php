@@ -19,7 +19,12 @@
             </section>
         </main>
 
-        <footer>
+        <footer class="wrapper">
+            <section class="container clearfix">
+                <p class="float-right">
+                    &copy; 2018
+                </p>
+            </section>
         </footer>
     </body>
 </html>

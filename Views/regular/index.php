@@ -4,22 +4,27 @@
     </h2>
 <?php else: ?>
     <?php if (!@$data['is_loggedin']): ?>
-        <fieldset class="login-form">
-            <legend>Login:</legend>
-            <form action="<?= @$data['base_path']; ?>/login" method="post">
-                <div class="login-form--field">
-                    <input placeholder="Username" type="text" id="login-username" name="_username" required>
-                </div>
-                <div class="login-form--field">
-                    <input placeholder="Password" type="password" id="login-password" name="_password" required>
-                </div>
-                <div class="login-form--field">
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-        </fieldset>
-
-        <?php include __DIR__ . '/../register/index.php'; ?>
+        <div class="row">
+            <div class="column">
+                <fieldset class="login-form">
+                    <legend>Login:</legend>
+                    <form action="<?= @$data['base_path']; ?>/login" method="post">
+                        <div class="login-form--field">
+                            <input placeholder="Username" type="text" id="login-username" name="_username" required>
+                        </div>
+                        <div class="login-form--field">
+                            <input placeholder="Password" type="password" id="login-password" name="_password" required>
+                        </div>
+                        <div class="login-form--field">
+                            <button type="submit">Login</button>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+            <div class="column">
+                <?php include __DIR__ . '/../register/index.php'; ?>
+            </div>
+        </div>
     <?php else: ?>
         <h2>Hello <?= @$data['username']; ?>!</h2>
         <p>

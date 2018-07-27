@@ -1,0 +1,30 @@
+body {
+  background: $body-bg;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background: $color-quinary;
+}
+
+footer {
+  background: $color-quinary;
+}
+
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+textarea,
+select {
+  color: $highlight-text;
+  font-size: 1.4rem;
+}
+
+.errors {
+  color: $highlight-error;
+}
