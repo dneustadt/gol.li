@@ -12,14 +12,7 @@ class Regular extends ControllerAbstract
     public function indexAction()
     {
         if (!empty($this->getRequest()->getControllerName())) {
-            $sql = 'SELECT `id` FROM `users` WHERE `username` = :username';
-
-            $stmt = $this->getDb()->prepare($sql);
-
-            $stmt->bindValue(':username', $this->getRequest()->getControllerName());
-            $stmt->execute();
-
-            $userID = $stmt->fetchColumn();
+            $userID = $this->getUserIdBySlug();
 
             if ($userID === false) {
                 $this->redirect('regular', 'index', 301);
@@ -31,7 +24,7 @@ class Regular extends ControllerAbstract
             /** @var User $user */
             $user = $this->getDb()->find($user);
 
-            if (!$this->getSession()->get('userId') || $this->getSession()->get('userId') != $user->getId()) {
+            if (!$this->getSession()->get('userId') || !$this->isOwner($user->getId())) {
                 $user->setHits($user->getHits() + 1);
                 $this->getDb()->update($user);
             }
@@ -39,11 +32,37 @@ class Regular extends ControllerAbstract
             return [
                 'title' => 'gol.li - ' . $user->getUsername(),
                 'name' => $user->getUsername(),
+                'isOwner' => $this->isOwner($user->getId()),
             ];
         }
 
         return [
             'title' => 'gol.li',
         ];
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getUserIdBySlug()
+    {
+        $sql = 'SELECT `id` FROM `users` WHERE `username` = :username';
+
+        $stmt = $this->getDb()->prepare($sql);
+
+        $stmt->bindValue(':username', $this->getRequest()->getControllerName());
+        $stmt->execute();
+
+        return $stmt->fetchColumn();
+    }
+
+    /**
+     * @param $userID
+     *
+     * @return bool
+     */
+    private function isOwner($userID)
+    {
+        return $this->getSession()->get('userId') == $userID;
     }
 }
