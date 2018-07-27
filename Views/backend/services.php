@@ -36,7 +36,11 @@
     <tbody>
     <?php /** @var \Golli\Models\Service $service */ foreach (@$data['services'] as $service): ?>
         <tr>
-            <td><?= $service->getImage() ?></td>
+            <td>
+                <?php if(!empty($service->getImage())): ?>
+                    <img class="icon" src="<?= @$data['base_path']; ?><?= $service->getImage() ?>" alt="<?= $service->getName() ?>">
+                <?php endif; ?>
+            </td>
             <td><?= $service->getName() ?></td>
             <td><?= $service->getUrl() ?></td>
             <td><?= $service->getPriority() ?></td>

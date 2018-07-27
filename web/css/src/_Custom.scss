@@ -29,18 +29,59 @@ select {
   color: $highlight-error;
 }
 
+.icon {
+  max-width: 2rem;
+  margin-right: 0.2rem;
+}
+
+.service-name {
+  display: none;
+}
+
+.row.service {
+  flex-direction: row;
+}
+
+.row.service {
+  .column-20 {
+    flex: 1 1 auto;
+    max-width: 3rem;
+  }
+}
+
 .service-form {
   .row {
     .column {
-      padding: 0.7rem 1rem;
+      padding: 0.7rem 0;
     }
     .column.url-pattern {
       flex: none;
       width: auto;
-      padding: 0.7rem 0.2rem;
     }
     .column.handle {
       padding: 0;
+    }
+  }
+}
+
+@media (min-width: 40rem) {
+  .service-name {
+    display: inline;
+  }
+  .row.service {
+    .column-20 {
+      flex: 0 0 20%;
+      max-width: 20%;
+    }
+  }
+  .service-form {
+    .row {
+      .column {
+        padding: 0.7rem 1rem;
+      }
+      .column.url-pattern {
+        padding: 0.7rem 0.2rem;
+      }
     }
   }
 }
