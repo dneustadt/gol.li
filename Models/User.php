@@ -44,6 +44,16 @@ class User implements ModelInterface
     private $sessionID;
 
     /**
+     * @var string
+     */
+    private $created;
+
+    /**
+     * @var string
+     */
+    private $lastLogin;
+
+    /**
      * @return int
      */
     public function getId()
@@ -156,6 +166,38 @@ class User implements ModelInterface
     }
 
     /**
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param string $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * @param string $lastLogin
+     */
+    public function setLastLogin($lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getData()
@@ -166,6 +208,8 @@ class User implements ModelInterface
             'password' => $this->getPassword(),
             'verified' => $this->getVerified(),
             'sessionID' => $this->getSessionID(),
+            'created' => $this->getCreated(),
+            'lastLogin' => $this->getLastLogin(),
         ];
     }
 

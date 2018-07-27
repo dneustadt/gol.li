@@ -6,7 +6,8 @@ class Logout extends ControllerAbstract
 {
     public function indexAction()
     {
-        session_destroy();
+        $this->getSession()->destroy();
+        $this->getSession()->regenerateId();
 
         $this->redirect('regular', 'index');
     }

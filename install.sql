@@ -6,6 +6,8 @@ CREATE TABLE `users` (
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `admin` tinyint(1) DEFAULT '0',
   `sessionID` text,
+  `created` datetime DEFAULT NULL,
+  `lastLogin` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)

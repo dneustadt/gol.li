@@ -20,6 +20,7 @@ class Register extends ControllerAbstract
             $user->setEmail($post['_email']);
             $user->setPassword($post['_password']);
             $user->setSessionID($this->getSession()->getSessionId());
+            $user->setCreated(date('Y-m-d H:i:s'));
 
             $this->getDb()->insert($user);
 

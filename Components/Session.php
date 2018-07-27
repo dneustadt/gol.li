@@ -46,4 +46,14 @@ class Session
 
         $this->__session = $_SESSION;
     }
+
+    public function destroy()
+    {
+        session_destroy();
+    }
+
+    public function regenerateId()
+    {
+        session_regenerate_id();
+    }
 }
