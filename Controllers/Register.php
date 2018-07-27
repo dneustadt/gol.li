@@ -55,10 +55,25 @@ class Register extends ControllerAbstract
             empty($post['_password']) ||
             empty($post['_password_confirm'])
         ) {
-            $error['all'] = 'Please provide all necessary information';
+            $error['all'] = true;
         } else {
-            if (preg_match("/[a-z0-9_]/", $post['_username'])) {
-                $error['username'] = 'The username must be all lowercase characters or numbers and may further contain only underscores';
+            $sql = 'SELECT `id` FROM `users` WHERE `username` = :username';
+
+            $stmt = $this->getDb()->prepare($sql);
+            $stmt->bindValue(':username', $post['_username']);
+            $stmt->execute();
+
+            if (!empty($stmt->fetchColumn())) {
+                $error['username_taken'] = true;
+            }
+            if (preg_match("/[^a-z0-9_]/", $post['_username']) || strlen($post['_username']) < 3) {
+                $error['username'] = true;
+            }
+            if (strlen($post['_password']) < 6) {
+                $error['password'] = true;
+            }
+            if ($post['_password'] !== $post['_password_confirm']) {
+                $error['password_confirm'] = true;
             }
         }
 
