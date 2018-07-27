@@ -1,3 +1,6 @@
+<a href="<?= @$data['base_path']; ?>/backend" class="button">Users</a>
+<a href="<?= @$data['base_path']; ?>/backend/services" class="button">Services</a>
+
 <table>
     <thead>
     <tr>
@@ -6,6 +9,7 @@
         <td>Hits</td>
         <td>Last Login</td>
         <td>Created at</td>
+        <td></td>
     </tr>
     </thead>
     <tbody>
