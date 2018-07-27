@@ -19,6 +19,7 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+            <button type="submit" class="float-right">Save</button>
         </form>
         <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
     <?php endif; ?>

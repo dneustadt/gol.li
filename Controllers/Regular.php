@@ -4,6 +4,7 @@ namespace Golli\Controllers;
 
 use Golli\Models\Service;
 use Golli\Models\User;
+use Golli\Models\UserServices;
 
 class Regular extends ControllerAbstract
 {
@@ -42,6 +43,31 @@ class Regular extends ControllerAbstract
         return [
             'title' => 'gol.li',
         ];
+    }
+
+    public function updateAction()
+    {
+        $userID = $this->getUserIdBySlug();
+
+        if ($this->isOwner($userID)) {
+            $serviceValues = $this->getRequest()->getPost('services');
+            $position = 0;
+
+            foreach ($serviceValues as $serviceID => $serviceValue) {
+                $userService = new UserServices();
+                $userService->setUserID($userID);
+                $userService->setServiceID($serviceID);
+                $userService->setHandle($serviceValue);
+                $userService->setPosition($position);
+
+                $this->getDb()->insert($userService, true);
+
+                $position++;
+            }
+            $this->redirect($this->getRequest()->getControllerName(), 'index');
+        }
+
+        $this->redirect('regular', 'index', 301);
     }
 
     /**

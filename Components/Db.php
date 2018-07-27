@@ -25,8 +25,9 @@ class Db extends \PDO
 
     /**
      * @param ModelInterface $model
+     * @param bool           $upsert
      */
-    public function insert(ModelInterface $model)
+    public function insert(ModelInterface $model, $upsert = false)
     {
         $columns = $this->getColumns($model);
         $placeholders = $this->getPlaceholders($model);
@@ -37,6 +38,20 @@ class Db extends \PDO
             join(',', $columns),
             join(',', $placeholders)
         );
+
+        if ($upsert) {
+            $sql .= ' ON DUPLICATE KEY UPDATE ';
+
+            $upsertColumns = array_map(
+                function ($column) {
+                    return "{$column} = VALUES({$column})";
+                },
+                $columns
+            );
+
+            $sql .= join(',', $upsertColumns);
+        }
+
         $stmt = $this->prepare($sql);
 
         foreach ($model->getData() as $placeholder => $value) {
@@ -56,7 +71,7 @@ class Db extends \PDO
 
         $columnPlaceholders = array_map(
             function ($column, $placeholder) {
-                return "{$column} = $placeholder";
+                return "{$column} = {$placeholder}";
             },
             $columns,
             $placeholders
