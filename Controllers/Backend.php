@@ -11,13 +11,36 @@ class Backend extends ControllerAbstract
      */
     public function indexAction()
     {
-        if (!$this->isLoggedIn() || !$this->getSession()->get('isAdmin')) {
-            $this->redirect('backend', 'login');
-        }
+        $this->checkLogin();
+
+        $limit = 10;
+        $page = (int) $this->getRequest()->get('page');
+        $offset = $page * $limit;
+
+        $model = new User();
+        $users = $this->getDb()->findAll($model, $offset, $limit);
+        $count = $this->getDb()->count($model);
 
         return [
             'title' => 'gol.li - backend',
+            'users' => $users,
+            'page' => $page,
+            'pages' => ceil($count / $limit),
         ];
+    }
+
+    public function deleteUserAction()
+    {
+        $this->checkLogin();
+
+        $id = (int) $this->getRequest()->get('id');
+
+        $model = new User();
+        $model->setId($id);
+
+        $this->getDb()->delete($model);
+
+        $this->redirect('backend', 'index');
     }
 
     /**
@@ -45,5 +68,12 @@ class Backend extends ControllerAbstract
         session_destroy();
 
         $this->redirect('backend', 'login');
+    }
+
+    private function checkLogin()
+    {
+        if (!$this->isLoggedIn() || !$this->getSession()->get('isAdmin')) {
+            $this->redirect('backend', 'login');
+        }
     }
 }

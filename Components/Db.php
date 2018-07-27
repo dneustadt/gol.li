@@ -106,6 +106,40 @@ class Db extends \PDO
 
     /**
      * @param ModelInterface $model
+     * @param int            $offset
+     * @param int            $limit
+     *
+     * @return array
+     */
+    public function findAll(ModelInterface $model, $offset = 0, $limit = 10)
+    {
+        $sql = sprintf(
+            "SELECT * FROM %s LIMIT {$offset}, {$limit}",
+            "`{$model->getTable()}`"
+        );
+        $stmt = $this->prepare($sql);
+        $stmt->execute();
+
+        $rows = [];
+
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $modelClone = clone $model;
+
+            foreach ($row as $key => $value) {
+                $method = 'set' . ucfirst($key);
+                if (method_exists($modelClone, $method)) {
+                    $modelClone->$method($value);
+                }
+            }
+
+            $rows[] = $modelClone;
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @param ModelInterface $model
      */
     public function delete(ModelInterface $model)
     {
@@ -116,6 +150,23 @@ class Db extends \PDO
         );
         $stmt = $this->prepare($sql);
         $stmt->execute();
+    }
+
+    /**
+     * @param ModelInterface $model
+     *
+     * @return int
+     */
+    public function count(ModelInterface $model)
+    {
+        $sql = sprintf(
+            'SELECT COUNT(*) FROM %s',
+            "`{$model->getTable()}`"
+        );
+        $stmt = $this->prepare($sql);
+        $stmt->execute();
+
+        return (int) $stmt->fetchColumn();
     }
 
     /**
