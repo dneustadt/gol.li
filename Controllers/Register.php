@@ -18,7 +18,7 @@ class Register extends ControllerAbstract
             $user = new User();
             $user->setUsername($post['_username']);
             $user->setEmail($post['_email']);
-            $user->setPassword($post['_password']);
+            $user->setNewPassword($post['_password']);
             $user->setSessionID($this->getSession()->getSessionId());
             $user->setCreated(date('Y-m-d H:i:s'));
 

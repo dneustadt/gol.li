@@ -114,6 +114,14 @@ class User implements ModelInterface
      */
     public function setPassword($password)
     {
+        $this->password = $password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setNewPassword($password)
+    {
         $this->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
     }
 
