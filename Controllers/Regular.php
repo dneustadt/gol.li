@@ -32,7 +32,7 @@ class Regular extends ControllerAbstract
                 $this->getDb()->update($user);
             }
 
-            $services = $this->getServicesWithHandlesByUserId($user->getId());
+            $services = $this->getServicesWithHandlesByUserId($user->getId(), $isOwner);
 
             return [
                 'title' => 'gol.li - ' . $user->getUsername(),
@@ -105,15 +105,18 @@ class Regular extends ControllerAbstract
     }
 
     /**
-     * @param $userID
+     * @param mixed $userID
+     * @param bool  $isOwner
      *
      * @return array|bool
      */
-    private function getServicesWithHandlesByUserId($userID)
+    private function getServicesWithHandlesByUserId($userID, $isOwner = true)
     {
+        $joinType = $isOwner ? 'LEFT' : 'INNER';
+
         $sql = 'SELECT * 
-                FROM `services`
-                LEFT JOIN `user_services`
+                FROM `services` ' .
+                $joinType . ' JOIN `user_services`
                 ON `services`.`id` = `user_services`.`serviceID` AND `user_services`.`userID` = :userId
                 ORDER BY `user_services`.`position`';
 

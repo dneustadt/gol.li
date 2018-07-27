@@ -24,6 +24,19 @@
             <button type="submit" class="float-right">Save</button>
         </form>
         <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
+    <?php else: ?>
+        <?php foreach (@$data['services'] as $service): ?>
+            <div class="row">
+                <div class="column column-25 column-offset-25">
+                    <?= $service['name'] ?>
+                </div>
+                <div class="column">
+                    <a href="<?= sprintf($service['url'], $service['handle']) ?>" target="_blank">
+                        <?= sprintf($service['url'], $service['handle']) ?>
+                    </a>
+                </div>
+            </div>
+        <?php endforeach; ?>
     <?php endif; ?>
 <?php else: ?>
     <?php if (!@$data['is_loggedin']): ?>
