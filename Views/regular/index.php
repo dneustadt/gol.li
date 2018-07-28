@@ -45,6 +45,17 @@
                         <?= sprintf($service['url'], $service['handle']); ?>
                     </a>
                 </div>
+                <div class="column actions">
+                    <a href="<?= sprintf($service['url'], $service['handle']); ?>" target="_blank">
+                        <svg x="0px" y="0px" width="12px" height="12px">
+                            <g>
+                                <polygon id="box" style="fill-rule:evenodd;clip-rule:evenodd;" points="2,2 5,2 5,3 3,3 3,9 9,9 9,7 10,7 10,10 2,10"></polygon>
+                                <polygon id="arrow_13_" style="fill-rule:evenodd;clip-rule:evenodd;" points="6.211,2 10,2 10,5.789 8.579,4.368 6.447,6.5
+                                    5.5,5.553 7.632,3.421"></polygon>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>

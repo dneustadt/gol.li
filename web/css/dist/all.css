@@ -616,6 +616,7 @@ header {
 
 header h1 {
   font-family: 'sloped', 'Dosis', sans-serif;
+  text-align: center;
 }
 
 h2.username {
@@ -690,6 +691,10 @@ fieldset {
   white-space: nowrap;
 }
 
+.row.service .column.actions {
+  display: none;
+}
+
 .row.service .column-33 {
   flex: 1 1 auto;
   max-width: 3rem;
@@ -715,6 +720,17 @@ fieldset {
   .row.service.front {
     max-width: 50rem;
     margin: 0 auto;
+  }
+  .row.service.front .column.actions {
+    display: block;
+    flex: 1 1 auto;
+    max-width: 2rem;
+    padding: 0;
+  }
+  .row.service.front .column a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .row.service .column-33 {
     flex: 0 0 33.3333%;

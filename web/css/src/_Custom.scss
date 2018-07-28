@@ -29,6 +29,7 @@ header {
   border-bottom: 1px solid $color-quaternary;
   h1 {
     font-family: 'sloped', 'Dosis', sans-serif;
+    text-align: center;
   }
 }
 
@@ -100,6 +101,9 @@ fieldset {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    &.actions {
+      display: none;
+    }
   }
   .column-33 {
     flex: 1 1 auto;
@@ -130,6 +134,19 @@ fieldset {
     &.front {
       max-width: 50rem;
       margin: 0 auto;
+      .column {
+        &.actions {
+          display: block;
+          flex: 1 1 auto;
+          max-width: 2rem;
+          padding: 0;
+        }
+        a {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
     }
     .column-33 {
       flex: 0 0 33.3333%;
