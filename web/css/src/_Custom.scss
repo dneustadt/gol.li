@@ -3,21 +3,46 @@
   src: url('../../fonts/sloped.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../fonts/dosis-v7-latin-regular.eot');
+  src: local('Dosis Regular'), local('Dosis-Regular'),
+  url('../../fonts/dosis-v7-latin-regular.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/dosis-v7-latin-regular.woff2') format('woff2'),
+  url('../../fonts/dosis-v7-latin-regular.woff') format('woff'),
+  url('../../fonts/dosis-v7-latin-regular.ttf') format('truetype'),
+  url('../../fonts/dosis-v7-latin-regular.svg#Dosis') format('svg');
+}
+
 body {
   background: $body-bg;
   padding: 0;
   margin: 0;
+  font-family: 'Dosis', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
 header {
   background: $color-quinary;
+  height: 5rem;
+  border-bottom: 1px solid $color-quaternary;
   h1 {
-    font-family: 'sloped';
+    font-family: 'sloped', 'Dosis', sans-serif;
   }
+}
+
+h2.username {
+  text-align: center;
+  font-size: 5rem;
+  padding: 5rem 0 3rem 0;
+  margin: 0;
 }
 
 footer {
   background: $color-quinary;
+  border-top: 1px solid $color-quaternary;
+  margin: 5rem 0 0 0;
 }
 
 input[type='email'],
@@ -29,6 +54,7 @@ input[type='text'],
 input[type='url'],
 textarea,
 select {
+  background: $color-quinary;
   color: $highlight-text;
   font-size: 1.4rem;
 }
@@ -38,18 +64,27 @@ select {
 }
 
 .icon {
-  max-height: 1.5rem;
+  max-height: 80%;
+  display: block;
+  margin: 10% auto;
 }
 
 .service-icon {
-  display: inline-block;
-  width: 2rem;
-  margin-right: 0.2rem;
+  display: block;
+  float: left;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.2rem 0.15rem 0.15rem 0.2rem;
+  margin: 0 0.6rem 0 0;
   text-align: center;
+  background: $highlight-text;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .service-name {
   display: none;
+  color: $highlight-text;
 }
 
 .row.service {
@@ -57,7 +92,14 @@ select {
 }
 
 .row.service {
-  .column-20 {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid $color-quinary;
+  .column {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .column-33 {
     flex: 1 1 auto;
     max-width: 3rem;
   }
@@ -83,15 +125,23 @@ select {
     display: inline;
   }
   .row.service {
-    .column-20 {
-      flex: 0 0 20%;
-      max-width: 20%;
+    &.front {
+      max-width: 50rem;
+      margin: 0 auto;
+    }
+    .column-33 {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
     }
   }
   .service-form {
     .row {
+      width: calc(100% + 1.5rem);
       .column {
         padding: 0.7rem 1rem;
+        input[type=text] {
+          margin: 0;
+        }
       }
       .column.url-pattern {
         padding: 0.7rem 0.2rem;

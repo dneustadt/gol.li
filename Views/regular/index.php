@@ -1,5 +1,5 @@
 <?php if (@$data['name']): ?>
-    <h2>
+    <h2 class="username">
         <?= @$data['name']; ?>
     </h2>
     <?php if (@$data['is_owner']): ?>
@@ -31,8 +31,8 @@
         <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
     <?php else: ?>
         <?php foreach (@$data['services'] as $service): ?>
-            <div class="row">
-                <div class="column column-25 column-offset-25">
+            <div class="row service front">
+                <div class="column column-33">
                     <span class="service-icon">
                         <?php if (!empty($service['image'])): ?>
                             <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
