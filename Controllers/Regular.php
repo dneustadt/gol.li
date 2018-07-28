@@ -118,7 +118,7 @@ class Regular extends ControllerAbstract
                 FROM `services` ' .
                 $joinType . ' JOIN `user_services`
                 ON `services`.`id` = `user_services`.`serviceID` AND `user_services`.`userID` = :userId
-                ORDER BY `user_services`.`position`, `services`.`priority`';
+                ORDER BY IF(`user_services`.`position` IS NULL, ~0, `user_services`.`position`) ASC, `services`.`priority` ASC';
 
         $stmt = $this->getDb()->prepare($sql);
 
