@@ -26,5 +26,6 @@
                 </p>
             </section>
         </footer>
+        <script type="text/javascript" src="<?= @$data['base_path']; ?>/web/js/dist/scripts.min.js"></script>
     </body>
 </html>

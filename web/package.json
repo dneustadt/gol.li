@@ -12,6 +12,8 @@
     "gulp": "^3.9.1",
     "gulp-csso": "^3.0.1",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^4.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify-es": "^1.0.4"
   }
 }

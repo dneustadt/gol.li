@@ -39,7 +39,7 @@
                                     $service['url'],
                                     '</div>' .
                                     '<div class="column handle">' .
-                                    '<input type="text" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
+                                    '<input type="text" data-id="' . $service['id'] . '" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
                                     '</div>' .
                                     '<div class="column url-pattern">'
                                 ); ?>
