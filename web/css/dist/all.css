@@ -620,8 +620,14 @@ select {
 }
 
 .icon {
-  max-width: 2rem;
+  max-height: 1.5rem;
+}
+
+.service-icon {
+  display: inline-block;
+  width: 2rem;
   margin-right: 0.2rem;
+  text-align: center;
 }
 
 .service-name {

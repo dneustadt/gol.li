@@ -7,9 +7,11 @@
             <?php foreach (@$data['services'] as $service): ?>
                 <div class="row service">
                     <div class="column column-20">
-                        <?php if(!empty($service['image'])): ?>
-                            <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image'] ?>" alt="<?= $service['name'] ?>">
-                        <?php endif; ?>
+                        <span class="service-icon">
+                            <?php if(!empty($service['image'])): ?>
+                                <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image'] ?>" alt="<?= $service['name'] ?>">
+                            <?php endif; ?>
+                        </span>
                         <span class="service-name"><?= $service['name'] ?></span>
                     </div>
                     <div class="column url-pattern">
@@ -31,9 +33,11 @@
         <?php foreach (@$data['services'] as $service): ?>
             <div class="row">
                 <div class="column column-25 column-offset-25">
-                    <?php if(!empty($service['image'])): ?>
-                        <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image'] ?>" alt="<?= $service['name'] ?>">
-                    <?php endif; ?>
+                    <span class="service-icon">
+                        <?php if(!empty($service['image'])): ?>
+                            <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image'] ?>" alt="<?= $service['name'] ?>">
+                        <?php endif; ?>
+                    </span>
                     <span class="service-name"><?= $service['name'] ?></span>
                 </div>
                 <div class="column">
