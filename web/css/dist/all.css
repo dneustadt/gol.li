@@ -588,6 +588,11 @@ img {
   float: right;
 }
 
+@font-face {
+  font-family: 'sloped';
+  src: url("../../fonts/sloped.woff") format("woff");
+}
+
 body {
   background: #0f0909;
   padding: 0;
@@ -596,6 +601,10 @@ body {
 
 header {
   background: #1E1E1E;
+}
+
+header h1 {
+  font-family: 'sloped';
 }
 
 footer {

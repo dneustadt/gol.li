@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'sloped';
+  src: url('../../fonts/sloped.woff') format('woff');
+}
+
 body {
   background: $body-bg;
   padding: 0;
@@ -6,6 +11,9 @@ body {
 
 header {
   background: $color-quinary;
+  h1 {
+    font-family: 'sloped';
+  }
 }
 
 footer {
