@@ -9,13 +9,30 @@ Array.from(document.querySelectorAll('.column.remove .remove--button')).forEach(
 
         Array.from(document.querySelectorAll(selectorDropdown)).forEach((element) =>
         {
-            element.removeAttribute('checked');
+            element.checked = false;
         });
 
         Array.from(document.querySelectorAll(selectorHandle)).forEach((element) =>
         {
-            element.removeAttribute('value');
+            element.value = '';
             element.parentElement.parentElement.setAttribute('style', 'display: none;')
         });
+    });
+});
+
+Array.from(document.querySelectorAll('.service-select--dropdown input')).forEach((element) =>
+{
+    let id = element.value,
+        selectorHandle = '.column.handle input[data-id="' + id + '"]';
+
+    element.addEventListener('change', function(event) {
+        event.preventDefault();
+
+        if (event.target.checked) {
+            Array.from(document.querySelectorAll(selectorHandle)).forEach((element) =>
+            {
+                element.parentElement.parentElement.removeAttribute('style');
+            });
+        }
     });
 });
