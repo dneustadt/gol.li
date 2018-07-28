@@ -39,7 +39,7 @@ class UserServices implements ModelInterface
      */
     public function setUserID($userID)
     {
-        $this->userID = $userID;
+        $this->userID = (int) $userID;
     }
 
     /**
@@ -55,7 +55,7 @@ class UserServices implements ModelInterface
      */
     public function setServiceID($serviceID)
     {
-        $this->serviceID = $serviceID;
+        $this->serviceID = (int) $serviceID;
     }
 
     /**
