@@ -1,7 +1,4 @@
 <?php if (@$data['name']): ?>
-    <h2 class="username">
-        <?= @$data['name']; ?>
-    </h2>
     <?php if (@$data['is_owner']): ?>
         <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post" class="service-form">
             <div class="row">
@@ -47,6 +44,9 @@
                                     '<div class="column url-pattern">'
                                 ); ?>
                             </div>
+                            <div class="column remove">
+                                <button class="remove--button" type="button" data-id="<?= $service['id']; ?>">&times;</button>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -55,6 +55,9 @@
         </form>
         <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
     <?php else: ?>
+        <h2 class="username">
+            <?= @$data['name']; ?>
+        </h2>
         <?php foreach (@$data['services'] as $service): ?>
             <div class="row service front">
                 <div class="column column-25">

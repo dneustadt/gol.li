@@ -123,6 +123,17 @@ fieldset {
     .column.handle {
       padding: 0;
     }
+    .column.remove {
+      padding: 0;
+      max-width: 4rem;
+      .remove--button {
+        margin: 0;
+        padding: 0 0 0 0.2rem;
+        width: 4rem;
+        font-size: 2rem;
+        line-height: 1rem;
+      }
+    }
   }
 }
 
@@ -223,7 +234,7 @@ fieldset {
       &.service:first-child {
         padding-top: 0;
       }
-      width: calc(100% + 1.7rem);
+      width: calc(100% + 1.5rem);
       .column {
         padding: 0.7rem 1rem;
         input[type=text] {

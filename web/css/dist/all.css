@@ -713,6 +713,19 @@ fieldset {
   padding: 0;
 }
 
+.service-form .row .column.remove {
+  padding: 0;
+  max-width: 4rem;
+}
+
+.service-form .row .column.remove .remove--button {
+  margin: 0;
+  padding: 0 0 0 0.2rem;
+  width: 4rem;
+  font-size: 2rem;
+  line-height: 1rem;
+}
+
 .service-select--dropdown {
   position: relative;
 }
@@ -809,7 +822,7 @@ fieldset {
     display: inline;
   }
   .service-form .row {
-    width: calc(100% + 1.7rem);
+    width: calc(100% + 1.5rem);
   }
   .service-form .row.service:first-child {
     padding-top: 0;
