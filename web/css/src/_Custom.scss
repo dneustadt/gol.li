@@ -105,7 +105,6 @@ fieldset {
       display: none;
     }
   }
-  .column-20,
   .column-25 {
     flex: 1 1 auto;
     max-width: 3rem;
@@ -132,9 +131,9 @@ fieldset {
     display: inline;
   }
   .row.service {
+    max-width: 60rem;
+    margin: 0 auto;
     &.front {
-      max-width: 60rem;
-      margin: 0 auto;
       .column {
         &.actions {
           display: block;
@@ -148,10 +147,6 @@ fieldset {
           text-overflow: ellipsis;
         }
       }
-    }
-    .column-20 {
-      flex: 0 0 20%;
-      max-width: 20%;
     }
     .column-25 {
       flex: 0 0 25%;

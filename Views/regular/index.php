@@ -6,7 +6,7 @@
         <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post" class="service-form">
             <?php foreach (@$data['services'] as $service): ?>
                 <div class="row service">
-                    <div class="column column-20">
+                    <div class="column column-25">
                         <span class="service-icon">
                             <?php if (!empty($service['image'])): ?>
                                 <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
