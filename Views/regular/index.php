@@ -50,7 +50,7 @@
     <?php endif; ?>
 <?php else: ?>
     <?php if (!@$data['is_loggedin']): ?>
-        <div class="row service">
+        <div class="row">
             <div class="column">
                 <fieldset class="login-form">
                     <legend>Login:</legend>

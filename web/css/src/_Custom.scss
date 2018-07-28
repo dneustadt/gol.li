@@ -59,14 +59,19 @@ select {
   font-size: 1.4rem;
 }
 
+fieldset {
+  min-width: auto;
+}
+
 .errors {
   color: $highlight-error;
 }
 
 .icon {
-  max-height: 80%;
+  max-height: 100%;
+  max-width: 100%;
   display: block;
-  margin: 10% auto;
+  margin: 0 auto;
 }
 
 .service-icon {
@@ -74,11 +79,8 @@ select {
   float: left;
   width: 2.5rem;
   height: 2.5rem;
-  padding: 0.2rem 0.15rem 0.15rem 0.2rem;
   margin: 0 0.6rem 0 0;
   text-align: center;
-  background: $highlight-text;
-  border-radius: 50%;
   overflow: hidden;
 }
 
