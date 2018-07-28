@@ -126,14 +126,76 @@ fieldset {
   }
 }
 
-@media (min-width: 40rem) {
-  .service-name {
-    display: inline;
+.service-select--dropdown {
+  position: relative;
+  dl {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    border: 1px solid $color-primary;
+    border-top: 0;
+    padding: 0.5rem;
+    max-height: 20.2rem;
+    overflow-y: auto;
+    background: $body-bg;
+    &:hover {
+      display: block;
+    }
   }
+  &:focus-within dl {
+    display: block;
+  }
+  .dropdown-label {
+    width: 100%;
+    margin: 0;
+    &:focus + dl {
+      display: block;
+      border: 1px solid $color-secondary;
+      border-top: 0;
+    }
+  }
+}
+
+.service-select {
+  dt {
+    margin: 0;
+    &:last-child {
+      label {
+        border: 0;
+      }
+    }
+  }
+  input {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    float: left;
+    visibility: hidden;
+  }
+  label {
+    padding: 0.3rem;
+    margin: 0;
+    border-bottom: 1px solid $color-quinary;
+    .service-name {
+      display: inline;
+    }
+  }
+  input:checked {
+    display: none;
+    & + label {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 40rem) {
   .row.service {
-    max-width: 60rem;
-    margin: 0 auto;
     &.front {
+      max-width: 60rem;
+      margin: 0 auto;
       .column {
         &.actions {
           display: block;
@@ -152,10 +214,16 @@ fieldset {
       flex: 0 0 25%;
       max-width: 25%;
     }
+    .service-name {
+      display: inline;
+    }
   }
   .service-form {
     .row {
-      width: calc(100% + 1.5rem);
+      &.service:first-child {
+        padding-top: 0;
+      }
+      width: calc(100% + 1.7rem);
       .column {
         padding: 0.7rem 1rem;
         input[type=text] {
@@ -165,6 +233,12 @@ fieldset {
       .column.url-pattern {
         padding: 0.7rem 0.2rem;
       }
+    }
+  }
+  .row {
+    .column.service-select {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
     }
   }
 }

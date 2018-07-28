@@ -4,28 +4,53 @@
     </h2>
     <?php if (@$data['is_owner']): ?>
         <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post" class="service-form">
-            <?php foreach (@$data['services'] as $service): ?>
-                <div class="row service">
-                    <div class="column column-25">
-                        <span class="service-icon">
-                            <?php if (!empty($service['image'])): ?>
-                                <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
-                            <?php endif; ?>
-                        </span>
-                        <span class="service-name"><?= $service['name']; ?></span>
-                    </div>
-                    <div class="column url-pattern">
-                        <?= sprintf(
-                            $service['url'],
-                            '</div>' .
-                            '<div class="column handle">' .
-                            '<input type="text" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
-                            '</div>' .
-                            '<div class="column url-pattern">'
-                        ); ?>
+            <div class="row">
+                <div class="column service-select">
+                    <div class="service-select--dropdown">
+                        <button type="button" class="dropdown-label">+ Add services</button>
+                        <dl>
+                            <?php foreach (@$data['services'] as $service): ?>
+                                <dt>
+                                    <input type="checkbox" id="service-select--<?= $service['id']; ?>" value="<?= $service['id']; ?>"
+                                        <?php if (!empty($service['handle'])): ?> checked="checked"<?php endif; ?>>
+                                    <label for="service-select--<?= $service['id']; ?>">
+                                        <span class="service-icon">
+                                            <?php if (!empty($service['image'])): ?>
+                                                <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
+                                            <?php endif; ?>
+                                        </span>
+                                        <span class="service-name"><?= $service['name']; ?></span>
+                                    </label>
+                                </dt>
+                            <?php endforeach; ?>
+                        </dl>
                     </div>
                 </div>
-            <?php endforeach; ?>
+                <div class="column">
+                    <?php foreach (@$data['services'] as $service): ?>
+                        <div class="row service"<?php if (empty($service['handle'])): ?> style="display: none;"<?php endif; ?>>
+                            <div class="column column-25">
+                                <span class="service-icon">
+                                    <?php if (!empty($service['image'])): ?>
+                                        <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
+                                    <?php endif; ?>
+                                </span>
+                                <span class="service-name"><?= $service['name']; ?></span>
+                            </div>
+                            <div class="column url-pattern">
+                                <?= sprintf(
+                                    $service['url'],
+                                    '</div>' .
+                                    '<div class="column handle">' .
+                                    '<input type="text" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
+                                    '</div>' .
+                                    '<div class="column url-pattern">'
+                                ); ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
             <button type="submit" class="float-right">Save</button>
         </form>
         <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>

@@ -713,11 +713,80 @@ fieldset {
   padding: 0;
 }
 
+.service-select--dropdown {
+  position: relative;
+}
+
+.service-select--dropdown dl {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  border: 1px solid #785964;
+  border-top: 0;
+  padding: 0.5rem;
+  max-height: 20.2rem;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.service-select--dropdown dl:hover {
+  display: block;
+}
+
+.service-select--dropdown:focus-within dl {
+  display: block;
+}
+
+.service-select--dropdown .dropdown-label {
+  width: 100%;
+  margin: 0;
+}
+
+.service-select--dropdown .dropdown-label:focus + dl {
+  display: block;
+  border: 1px solid #606c76;
+  border-top: 0;
+}
+
+.service-select dt {
+  margin: 0;
+}
+
+.service-select dt:last-child label {
+  border: 0;
+}
+
+.service-select input {
+  margin: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  float: left;
+  visibility: hidden;
+}
+
+.service-select label {
+  padding: 0.3rem;
+  margin: 0;
+  border-bottom: 1px solid #f4f5f6;
+}
+
+.service-select label .service-name {
+  display: inline;
+}
+
+.service-select input:checked {
+  display: none;
+}
+
+.service-select input:checked + label {
+  display: none;
+}
+
 @media (min-width: 40rem) {
-  .service-name {
-    display: inline;
-  }
-  .row.service {
+  .row.service.front {
     max-width: 60rem;
     margin: 0 auto;
   }
@@ -736,8 +805,14 @@ fieldset {
     flex: 0 0 25%;
     max-width: 25%;
   }
+  .row.service .service-name {
+    display: inline;
+  }
   .service-form .row {
-    width: calc(100% + 1.5rem);
+    width: calc(100% + 1.7rem);
+  }
+  .service-form .row.service:first-child {
+    padding-top: 0;
   }
   .service-form .row .column {
     padding: 0.7rem 1rem;
@@ -747,5 +822,9 @@ fieldset {
   }
   .service-form .row .column.url-pattern {
     padding: 0.7rem 0.2rem;
+  }
+  .row .column.service-select {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
   }
 }
