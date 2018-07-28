@@ -105,7 +105,8 @@ fieldset {
       display: none;
     }
   }
-  .column-33 {
+  .column-20,
+  .column-25 {
     flex: 1 1 auto;
     max-width: 3rem;
   }
@@ -132,7 +133,7 @@ fieldset {
   }
   .row.service {
     &.front {
-      max-width: 50rem;
+      max-width: 60rem;
       margin: 0 auto;
       .column {
         &.actions {
@@ -148,9 +149,13 @@ fieldset {
         }
       }
     }
-    .column-33 {
-      flex: 0 0 33.3333%;
-      max-width: 33.3333%;
+    .column-20 {
+      flex: 0 0 20%;
+      max-width: 20%;
+    }
+    .column-25 {
+      flex: 0 0 25%;
+      max-width: 25%;
     }
   }
   .service-form {

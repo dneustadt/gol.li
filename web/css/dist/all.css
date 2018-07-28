@@ -695,7 +695,8 @@ fieldset {
   display: none;
 }
 
-.row.service .column-33 {
+.row.service .column-20,
+.row.service .column-25 {
   flex: 1 1 auto;
   max-width: 3rem;
 }
@@ -718,7 +719,7 @@ fieldset {
     display: inline;
   }
   .row.service.front {
-    max-width: 50rem;
+    max-width: 60rem;
     margin: 0 auto;
   }
   .row.service.front .column.actions {
@@ -732,9 +733,13 @@ fieldset {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .row.service .column-33 {
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
+  .row.service .column-20 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+  .row.service .column-25 {
+    flex: 0 0 25%;
+    max-width: 25%;
   }
   .service-form .row {
     width: calc(100% + 1.5rem);

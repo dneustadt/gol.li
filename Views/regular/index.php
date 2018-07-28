@@ -32,7 +32,7 @@
     <?php else: ?>
         <?php foreach (@$data['services'] as $service): ?>
             <div class="row service front">
-                <div class="column column-33">
+                <div class="column column-25">
                     <span class="service-icon">
                         <?php if (!empty($service['image'])): ?>
                             <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
