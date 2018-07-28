@@ -8,11 +8,11 @@
                 <div class="row service">
                     <div class="column column-20">
                         <span class="service-icon">
-                            <?php if(!empty($service['image'])): ?>
-                                <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image'] ?>" alt="<?= $service['name'] ?>">
+                            <?php if (!empty($service['image'])): ?>
+                                <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
                             <?php endif; ?>
                         </span>
-                        <span class="service-name"><?= $service['name'] ?></span>
+                        <span class="service-name"><?= $service['name']; ?></span>
                     </div>
                     <div class="column url-pattern">
                         <?= sprintf(
@@ -22,7 +22,7 @@
                             '<input type="text" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
                             '</div>' .
                             '<div class="column url-pattern">'
-                        ) ?>
+                        ); ?>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -34,15 +34,15 @@
             <div class="row">
                 <div class="column column-25 column-offset-25">
                     <span class="service-icon">
-                        <?php if(!empty($service['image'])): ?>
-                            <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image'] ?>" alt="<?= $service['name'] ?>">
+                        <?php if (!empty($service['image'])): ?>
+                            <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
                         <?php endif; ?>
                     </span>
-                    <span class="service-name"><?= $service['name'] ?></span>
+                    <span class="service-name"><?= $service['name']; ?></span>
                 </div>
                 <div class="column">
-                    <a href="<?= sprintf($service['url'], $service['handle']) ?>" target="_blank">
-                        <?= sprintf($service['url'], $service['handle']) ?>
+                    <a href="<?= sprintf($service['url'], $service['handle']); ?>" target="_blank">
+                        <?= sprintf($service['url'], $service['handle']); ?>
                     </a>
                 </div>
             </div>

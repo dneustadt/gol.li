@@ -90,10 +90,10 @@ class Backend extends ControllerAbstract
 
             $file = $this->getRequest()->getFile('_image');
             if (!empty($file['tmp_name'])) {
-                $filename = $file["name"];
+                $filename = $file['name'];
                 $path = '/web/icons/' . $filename;
 
-                if (move_uploaded_file($file["tmp_name"], $this->getRequest()->getAppPath() . $path)) {
+                if (move_uploaded_file($file['tmp_name'], $this->getRequest()->getAppPath() . $path)) {
                     $service->setImage($path);
                 }
             }

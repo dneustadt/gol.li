@@ -2,7 +2,6 @@
 
 namespace Golli\Controllers;
 
-use Golli\Models\Service;
 use Golli\Models\User;
 use Golli\Models\UserServices;
 

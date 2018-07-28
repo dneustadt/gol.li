@@ -38,16 +38,16 @@
         <tr>
             <td>
                 <span class="service-icon">
-                    <?php if(!empty($service->getImage())): ?>
-                        <img class="icon" src="<?= @$data['base_path']; ?><?= $service->getImage() ?>" alt="<?= $service->getName() ?>">
+                    <?php if (!empty($service->getImage())): ?>
+                        <img class="icon" src="<?= @$data['base_path']; ?><?= $service->getImage(); ?>" alt="<?= $service->getName(); ?>">
                     <?php endif; ?>
                 </span>
             </td>
-            <td><?= $service->getName() ?></td>
-            <td><?= $service->getUrl() ?></td>
-            <td><?= $service->getPriority() ?></td>
+            <td><?= $service->getName(); ?></td>
+            <td><?= $service->getUrl(); ?></td>
+            <td><?= $service->getPriority(); ?></td>
             <td class="action">
-                <a class="button" href="<?= @$data['base_path']; ?>/backend/deleteService?id=<?= $service->getId() ?>">Delete</a>
+                <a class="button" href="<?= @$data['base_path']; ?>/backend/deleteService?id=<?= $service->getId(); ?>">Delete</a>
             </td>
         </tr>
     <?php endforeach; ?>
@@ -57,10 +57,10 @@
 <p>
     <span>Page</span>
     <?php for ($i = 0; $i < @$data['pages']; $i++): ?>
-        <?php if(@$data['page'] != $i): ?>
-            <a class="button" href="<?= @$data['base_path']; ?>/backend/services?page=<?= $i ?>"><?= $i + 1 ?></a>
+        <?php if (@$data['page'] != $i): ?>
+            <a class="button" href="<?= @$data['base_path']; ?>/backend/services?page=<?= $i; ?>"><?= $i + 1; ?></a>
         <?php else: ?>
-            <span class="button button-clear"><?= $i + 1 ?></span>
+            <span class="button button-clear"><?= $i + 1; ?></span>
         <?php endif; ?>
     <?php endfor; ?>
 </p>

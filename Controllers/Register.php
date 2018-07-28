@@ -67,7 +67,7 @@ class Register extends ControllerAbstract
             if (!empty($stmt->fetchColumn())) {
                 $error['username_taken'] = true;
             }
-            if (preg_match("/[^a-z0-9_]/", $post['_username']) || strlen($post['_username']) < 3) {
+            if (preg_match('/[^a-z0-9_]/', $post['_username']) || strlen($post['_username']) < 3) {
                 $error['username'] = true;
             }
             if (strlen($post['_password']) < 6) {
