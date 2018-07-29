@@ -80,7 +80,7 @@ class Regular extends ControllerAbstract
     }
 
     /**
-     * @return array
+     * @return mixed
      */
     public function shareAction()
     {
@@ -99,12 +99,12 @@ class Regular extends ControllerAbstract
 
                 foreach ($services as $service) {
                     if (!empty($service['handle'])) {
-                        $url[$service['name']] = sprintf($service['url'], $service['handle']);
+                        $urls[$service['name']] = sprintf($service['url'], $service['handle']);
                     }
                 }
 
                 header('Content-Type: application/json');
-                echo json_encode($url, JSON_PRETTY_PRINT);
+                echo json_encode($urls, JSON_PRETTY_PRINT);
                 die();
             }
 
@@ -116,7 +116,7 @@ class Regular extends ControllerAbstract
             ];
         }
 
-        $this->redirect('regular', 'index', 301);
+        return $this->redirect('regular', 'index', 301);
     }
 
     /**
