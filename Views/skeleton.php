@@ -22,7 +22,9 @@
         <footer class="wrapper">
             <section class="container clearfix">
                 <p class="float-right">
-                    &copy; 2018
+                    <a href="<?= @$data['base_path']; ?>/terms" title="Terms of Service">Terms of Service</a>&nbsp;&nbsp;|&nbsp;
+                    <a href="<?= @$data['base_path']; ?>/terms/privacy" title="Privacy Policy">Privacy Policy</a>&nbsp;&nbsp;|&nbsp;
+                    gol.li &copy; 2018
                 </p>
             </section>
         </footer>
