@@ -80,6 +80,46 @@ class Regular extends ControllerAbstract
     }
 
     /**
+     * @return array
+     */
+    public function shareAction()
+    {
+        if (!empty($this->getRequest()->getControllerName())) {
+            $userID = $this->getUserIdBySlug();
+
+            if ($userID === false) {
+                $this->redirect('regular', 'index', 301);
+            }
+
+            $services = $this->getServicesWithHandlesByUserId($userID, false);
+            $json = $this->getRequest()->get('json');
+
+            if (!empty($json)) {
+                $urls = [];
+
+                foreach ($services as $service) {
+                    if (!empty($service['handle'])) {
+                        $url[$service['name']] = sprintf($service['url'], $service['handle']);
+                    }
+                }
+
+                header('Content-Type: application/json');
+                echo json_encode($url, JSON_PRETTY_PRINT);
+                die();
+            }
+
+            $this->setTemplate('regular/share.php');
+
+            return [
+                'services' => $services,
+                'no_skeleton' => true,
+            ];
+        }
+
+        $this->redirect('regular', 'index', 301);
+    }
+
+    /**
      * @return mixed
      */
     private function getUserIdBySlug()

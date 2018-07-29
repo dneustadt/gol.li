@@ -7,6 +7,11 @@
         <link rel="stylesheet" href="<?= @$data['base_path']; ?>/web/css/dist/all.min.css">
     </head>
     <body>
+        <?php if(@$data['no_skeleton']): ?>
+            <?php include @$data['template']; ?>
+            </body></html>
+            <?php return; ?>
+        <?php endif; ?>
         <header class="wrapper">
             <section class="container">
                 <h1><a href="<?= @$data['base_path']; ?>/">gol.li</a></h1>

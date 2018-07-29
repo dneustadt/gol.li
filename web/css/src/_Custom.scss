@@ -255,6 +255,33 @@ fieldset {
   filter: alpha(opacity=20);
 }
 
+.share-icons {
+  .share-icons--container {
+    padding: 0.25rem 0.45rem;
+    a {
+      display: block;
+      float: left;
+      margin: 0.5rem 0.3rem;
+      .service-icon {
+        float: none;
+      }
+    }
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    font-family: 'sloped', 'Dosis', sans-serif;
+    a {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      margin-right: 0.75rem;
+    }
+  }
+}
+
 @media (min-width: 40rem) {
   .row.service {
     &.front {
