@@ -1414,4 +1414,8 @@ Array.from(document.querySelectorAll('.service-select--dropdown input')).forEach
 dragula([
     document.querySelector('.service-form .service-rows')
 ]);
+Array.from(document.querySelectorAll('.errors')).forEach((element) =>
+{
+    element.scrollIntoView(true);
+});
 var sticky = new Sticky('[data-sticky]');
