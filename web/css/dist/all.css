@@ -700,6 +700,15 @@ fieldset {
   max-width: 3rem;
 }
 
+.service-form .row.service:hover {
+  background: #f4f5f6;
+  cursor: grab;
+}
+
+.service-form .row.service:hover input {
+  background: #fff;
+}
+
 .service-form .row .column {
   padding: 0.7rem 0;
 }

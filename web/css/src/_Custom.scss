@@ -113,6 +113,15 @@ fieldset {
 
 .service-form {
   .row {
+    &.service {
+      &:hover {
+        background: $color-quinary;
+        cursor: grab;
+        input {
+          background: $body-bg;
+        }
+      }
+    }
     .column {
       padding: 0.7rem 0;
       input {
