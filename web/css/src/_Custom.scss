@@ -191,6 +191,9 @@ fieldset {
         border: 0;
       }
     }
+    &:hover {
+      background: $color-quinary;
+    }
   }
   input {
     margin: 0;
@@ -201,6 +204,7 @@ fieldset {
     visibility: hidden;
   }
   label {
+    cursor: pointer;
     padding: 0.3rem;
     margin: 0;
     border-bottom: 1px solid $color-quinary;

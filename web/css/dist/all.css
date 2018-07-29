@@ -786,6 +786,10 @@ fieldset {
   border: 0;
 }
 
+.service-select dt:hover {
+  background: #f4f5f6;
+}
+
 .service-select input {
   margin: 0;
   padding: 0;
@@ -796,6 +800,7 @@ fieldset {
 }
 
 .service-select label {
+  cursor: pointer;
   padding: 0.3rem;
   margin: 0;
   border-bottom: 1px solid #f4f5f6;
