@@ -704,6 +704,10 @@ fieldset {
   padding: 0.7rem 0;
 }
 
+.service-form .row .column input {
+  margin-bottom: 0;
+}
+
 .service-form .row .column.url-pattern {
   flex: none;
   width: auto;

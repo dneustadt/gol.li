@@ -115,6 +115,9 @@ fieldset {
   .row {
     .column {
       padding: 0.7rem 0;
+      input {
+        margin-bottom: 0;
+      }
     }
     .column.url-pattern {
       flex: none;
