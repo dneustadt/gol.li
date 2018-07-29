@@ -205,10 +205,22 @@ fieldset {
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
+  padding: 2.25rem 0 0 0 !important;
   z-index: 9999 !important;
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
+  border: 0;
+  border-radius: 1rem;
+  background: $color-quinary;
+  .handle,
+  .url-pattern,
+  .remove {
+    display: none;
+  }
+  .row.service {
+    height: 3rem !important;
+  }
 }
 .gu-hide {
   display: none !important;

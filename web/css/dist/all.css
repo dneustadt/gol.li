@@ -801,10 +801,24 @@ fieldset {
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
+  padding: 2.25rem 0 0 0 !important;
   z-index: 9999 !important;
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
+  border: 0;
+  border-radius: 1rem;
+  background: #f4f5f6;
+}
+
+.gu-mirror .handle,
+.gu-mirror .url-pattern,
+.gu-mirror .remove {
+  display: none;
+}
+
+.gu-mirror .row.service {
+  height: 3rem !important;
 }
 
 .gu-hide {
