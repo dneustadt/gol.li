@@ -61,7 +61,46 @@
             </div>
             <button type="submit" class="float-right">Save</button>
         </form>
-        <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
+        <div class="row">
+            <div class="column">
+                <h3>Share &amp; Embedd</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <p>Embedd a ready-made widget with links to all your profiles.</p>
+                <pre>
+    <?= htmlentities('<iframe src="//gol.li'); ?><?= @$data['base_path']; ?>/<?= @$data['name']; ?><?= htmlentities('/share"
+            style="width: 320px; 
+                   height: 80px;
+                   border: 1px solid #ccc;"></iframe>'); ?></pre>
+            </div>
+            <div class="column">
+                <p>Preview:</p>
+                <?php include __DIR__ . '/../_partials/iframe-demo.php'; ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <p>Add the json parameter to receive raw data as JSON.</p>
+                <pre>
+    curl http://gol.li<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/share?json=1</pre>
+            </div>
+            <div class="column">
+                <p>Response:</p>
+                <pre>
+    {
+        "Facebook": "https:\/\/facebook.com\/foo",
+        "Instagram": "https:\/\/instagram.com\/bar",
+        "YouTube": "https:\/\/youtube.com\/user\/foobar"
+    }</pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
+            </div>
+        </div>
     <?php else: ?>
         <h2 class="username">
             <?= @$data['name']; ?>

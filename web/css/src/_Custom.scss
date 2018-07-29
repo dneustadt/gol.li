@@ -256,6 +256,15 @@ fieldset {
 }
 
 .share-icons {
+  &.demo {
+    position: relative;
+    width: 320px;
+    height: 80px;
+    border: 1px solid #ccc;
+    footer {
+      position: absolute;
+    }
+  }
   .share-icons--container {
     padding: 0.25rem 0.45rem;
     a {
@@ -268,13 +277,19 @@ fieldset {
     }
   }
   footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     margin: 0;
-    font-family: 'sloped', 'Dosis', sans-serif;
+    span {
+      font-family: sans-serif;
+      font-size: 1rem;
+      line-height: 2.3rem;
+      margin: 0 0.8rem 0 0;
+    }
     a {
+      font-family: 'sloped', 'Dosis', sans-serif;
       font-size: 2.5rem;
       line-height: 2.5rem;
       margin-right: 0.75rem;
