@@ -6,6 +6,20 @@ use Golli\Models\User;
 
 class Register extends ControllerAbstract
 {
+    const USERNAME_BLACKLIST = [
+        'regular',
+        'backend',
+        'login',
+        'logout',
+        'register',
+        'terms',
+        'components',
+        'controllers',
+        'models',
+        'views',
+        'web',
+    ];
+
     /**
      * {@inheritdoc}
      */
@@ -13,6 +27,10 @@ class Register extends ControllerAbstract
     {
         $post = $this->getRequest()->getPost();
         $error = $this->validate($post);
+
+        if (!empty($post['_username'])) {
+            $post['_username'] = strtolower($post['_username']);
+        }
 
         if (empty($error) && $this->getRequest()->isPost()) {
             $user = new User();
@@ -64,7 +82,7 @@ class Register extends ControllerAbstract
             $stmt->bindValue(':username', $post['_username']);
             $stmt->execute();
 
-            if (!empty($stmt->fetchColumn())) {
+            if (in_array($post['_username'], self::USERNAME_BLACKLIST) || !empty($stmt->fetchColumn())) {
                 $error['username_taken'] = true;
             }
             if (preg_match('/[^a-z0-9_]/', $post['_username']) || strlen($post['_username']) < 3) {

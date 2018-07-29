@@ -2,7 +2,7 @@
     Options -Indexes
     Options -MultiViews
     RewriteEngine On
-    RewriteRule (Components|Controllers) index.php [PT,L,QSA]
+    RewriteRule (Components|Controllers|Models|Views) index.php [PT,L,QSA]
     RewriteCond %{HTTP:Authorization} ^(.+)$
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
     RewriteCond %{REQUEST_URI} !(\/(web)\/)
