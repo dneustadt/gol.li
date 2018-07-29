@@ -14,6 +14,6 @@ class Login extends ControllerAbstract
             $this->redirect($user->getUsername(), 'index');
         }
 
-        $this->redirect('regular', 'index');
+        $this->redirect('regular', 'index', 301, ['login_error' => 'true']);
     }
 }

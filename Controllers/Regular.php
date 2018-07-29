@@ -46,6 +46,7 @@ class Regular extends ControllerAbstract
 
         return [
             'title' => 'gol.li',
+            'login_error' => $this->getRequest()->get('login_error'),
         ];
     }
 

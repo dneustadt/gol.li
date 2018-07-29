@@ -108,12 +108,22 @@
                         <div class="profile-form--field">
                             <input placeholder="Old Password" type="password" id="old_password" name="_old_password" required>
                         </div>
+                        <?php if (@$data['error'] == 'password'): ?>
+                            <ul class="errors">
+                                <li>The provided password is invalid</li>
+                            </ul>
+                        <?php endif; ?>
                         <div class="profile-form--field">
                             <input placeholder="New Password" type="password" id="new_password" name="_new_password">
                         </div>
                         <div class="profile-form--field">
                             <input placeholder="Confirm New Password" type="password" id="new_password_confirm" name="_new_password_confirm">
                         </div>
+                        <?php if (@$data['error'] == 'password_match'): ?>
+                            <ul class="errors">
+                                <li>The passwords didn't match or the new password is too short (min. 6 characters)</li>
+                            </ul>
+                        <?php endif; ?>
                         <div class="profile-form--field">
                             <input placeholder="Email" type="text" id="email" name="_email"
                                    <?php if (@$data['email']): ?> value="<?= @$data['email']; ?>"<?php endif; ?>>
@@ -177,6 +187,11 @@
                         <div class="login-form--field">
                             <input placeholder="Password" type="password" id="login-password" name="_password" required>
                         </div>
+                        <?php if (@$data['login_error'] == 'true'): ?>
+                            <ul class="errors">
+                                <li>The provided combination of password and username is invalid</li>
+                            </ul>
+                        <?php endif; ?>
                         <div class="login-form--field">
                             <button type="submit">Login</button>
                         </div>
