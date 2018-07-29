@@ -1,13 +1,23 @@
 <?php if (@$data['name']): ?>
     <?php if (@$data['is_owner']): ?>
         <h2>Hello <?= @$data['username']; ?>!</h2>
-        <p>
-            You can manage your profile by adding services below and subsequently entering your corresponding user name or ID.<br>
-            Change the order of displayed services by clicking and dragging rows to the desired position.<br>
-            You can request a
-            <a href="<?= @$data['base_path']; ?>/<?= @$data['username'] . '?preview=1'; ?>" target="_blank">preview</a>
-            of your public profile while logged in.
-        </p>
+        <div class="row">
+            <div class="column">
+                <p>
+                    You can manage your profile by adding services below and subsequently entering your corresponding user name or ID.<br>
+                    Change the order of displayed services by clicking and dragging rows to the desired position.<br>
+                    You can request a
+                    <a href="<?= @$data['base_path']; ?>/<?= @$data['username'] . '?preview=1'; ?>" target="_blank">preview</a>
+                    of your public profile while logged in.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column profile-nav">
+                <a href="#share" class="button button-clear">Share & Embedd</a>
+                <a href="#profile" class="button button-clear">Update Profile</a>
+            </div>
+        </div>
         <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post" class="service-form">
             <div class="row" data-sticky-container="true">
                 <div class="column service-select">
@@ -63,7 +73,7 @@
         </form>
         <div class="row">
             <div class="column">
-                <h3>Share &amp; Embedd</h3>
+                <h3 id="share">Share &amp; Embedd</h3>
             </div>
         </div>
         <div class="row">
@@ -98,7 +108,7 @@
         </div>
         <div class="row">
             <div class="column">
-                <h3>Update Profile</h3>
+                <h3 id="profile">Update Profile</h3>
             </div>
         </div>
         <div class="row">

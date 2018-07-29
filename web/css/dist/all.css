@@ -905,6 +905,10 @@ fieldset {
   margin-right: 0.75rem;
 }
 
+.profile-nav {
+  text-align: center;
+}
+
 @media (min-width: 40rem) {
   .row.service.front {
     max-width: 60rem;
