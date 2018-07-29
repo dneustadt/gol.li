@@ -25,7 +25,7 @@ gulp.task('build-css', function() {
         .pipe(gulp.dest(sassConfig.outputDirectory));
 });
 
-var jsFiles = 'js/src/**/*.js',
+var jsFiles = ['js/src/lib/*.js', 'js/src/*.js'],
     jsDest = 'js/dist';
 
 gulp.task('build-scripts', function() {

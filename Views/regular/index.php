@@ -23,7 +23,7 @@
                         </dl>
                     </div>
                 </div>
-                <div class="column">
+                <div class="column service-rows">
                     <?php foreach (@$data['services'] as $service): ?>
                         <div class="row service"<?php if (empty($service['handle'])): ?> style="display: none;"<?php endif; ?>>
                             <div class="column column-25">
