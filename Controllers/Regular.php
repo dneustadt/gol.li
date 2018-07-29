@@ -127,7 +127,7 @@ class Regular extends ControllerAbstract
         if (!empty($this->getRequest()->getControllerName())) {
             $userID = $this->getUserIdBySlug();
 
-            if ($userID === false) {
+            if ($userID === false || !$this->isOwner($userID)) {
                 $this->redirect('regular', 'index', 301);
             }
 
