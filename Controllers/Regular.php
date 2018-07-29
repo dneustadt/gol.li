@@ -24,7 +24,8 @@ class Regular extends ControllerAbstract
 
             /** @var User $user */
             $user = $this->getDb()->find($user);
-            $isOwner = $this->isOwner($user->getId());
+            $preview = $this->getRequest()->get('preview');
+            $isOwner = !$preview ? $this->isOwner($user->getId()) : false;
 
             if (!$this->getSession()->get('userId') || !$isOwner) {
                 $user->setHits($user->getHits() + 1);
