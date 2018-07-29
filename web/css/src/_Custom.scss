@@ -151,7 +151,8 @@ fieldset {
 
 .service-select--dropdown {
   position: relative;
-  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  background: $body-bg;
   dl {
     display: none;
     position: absolute;
