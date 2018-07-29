@@ -14,6 +14,10 @@
                 <li>The username must be all lowercase characters or numbers and may further contain only underscores</li>
                 <li>Must contain at least 3 characters</li>
             </ul>
+        <?php else: ?>
+            <dl>
+                <dt><strong>Note:</strong> The username must be all lowercase characters or numbers and may further contain only underscores</dt>
+            </dl>
         <?php endif; ?>
         <div class="register-form--field">
             <input placeholder="Password" type="password" minlength="6" id="password" name="_password" required>
