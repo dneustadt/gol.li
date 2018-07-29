@@ -37,8 +37,10 @@ class Regular extends ControllerAbstract
             return [
                 'title' => 'gol.li - ' . $user->getUsername(),
                 'name' => $user->getUsername(),
+                'email' => $user->getEmail(),
                 'is_owner' => $isOwner,
                 'services' => $services,
+                'error' => $this->getRequest()->get('error'),
             ];
         }
 
@@ -117,6 +119,55 @@ class Regular extends ControllerAbstract
         }
 
         return $this->redirect('regular', 'index', 301);
+    }
+
+    public function updateProfileAction()
+    {
+        if (!empty($this->getRequest()->getControllerName())) {
+            $userID = $this->getUserIdBySlug();
+
+            if ($userID === false) {
+                $this->redirect('regular', 'index', 301);
+            }
+
+            $oldPassword = $this->getRequest()->getPost('_old_password');
+            $newPassword = $this->getRequest()->getPost('_new_password');
+            $newPasswordConfirm = $this->getRequest()->getPost('_new_password_confirm');
+            $email = $this->getRequest()->getPost('_email');
+
+            if (!empty($newPassword) && (strlen($newPassword) < 6 || $newPassword !== $newPasswordConfirm)) {
+                $this->redirect(
+                    $this->getRequest()->getControllerName(),
+                    'index',
+                    302,
+                    ['error' => 'password_match']
+                );
+            }
+
+            $user = new User();
+            $user->setId($userID);
+
+            /** @var User $user */
+            $user = $this->getDb()->find($user);
+
+            if (empty($oldPassword) || !password_verify($oldPassword, $user->getPassword())) {
+                $this->redirect(
+                    $this->getRequest()->getControllerName(),
+                    'index',
+                    302,
+                    ['error' => 'password']
+                );
+            }
+
+            if (!empty($newPassword)) {
+                $user->setNewPassword($newPassword);
+            }
+            $user->setEmail($email);
+
+            $this->getDb()->update($user);
+
+            $this->redirect($this->getRequest()->getControllerName(), 'index');
+        }
     }
 
     /**

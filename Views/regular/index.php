@@ -98,7 +98,37 @@
         </div>
         <div class="row">
             <div class="column">
-                <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
+                <h3>Update Profile</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <fieldset class="profile-form">
+                    <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/updateProfile" method="post">
+                        <div class="profile-form--field">
+                            <input placeholder="Old Password" type="password" id="old_password" name="_old_password" required>
+                        </div>
+                        <div class="profile-form--field">
+                            <input placeholder="New Password" type="password" id="new_password" name="_new_password">
+                        </div>
+                        <div class="profile-form--field">
+                            <input placeholder="Confirm New Password" type="password" id="new_password_confirm" name="_new_password_confirm">
+                        </div>
+                        <div class="profile-form--field">
+                            <input placeholder="Email" type="text" id="email" name="_email"
+                                   <?php if (@$data['email']): ?> value="<?= @$data['email']; ?>"<?php endif; ?>>
+                        </div>
+                        <div class="profile-form--field">
+                            <button type="submit" class="float-right">Update</button>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <a href="<?= @$data['base_path']; ?>/logout" class="button float-right">Logout</a>
             </div>
         </div>
     <?php else: ?>

@@ -152,9 +152,14 @@ abstract class ControllerAbstract implements ControllerInterface
      * @param string $controller
      * @param string $action
      * @param int    $responseCode
+     * @param array  $params
      */
-    protected function redirect($controller, $action, $responseCode = 302)
-    {
+    protected function redirect(
+        $controller,
+        $action,
+        $responseCode = 302,
+        $params = []
+    ) {
         $header = 'Location: %s/%s/%s';
 
         if ($action === 'index') {
@@ -165,8 +170,14 @@ abstract class ControllerAbstract implements ControllerInterface
             }
         }
 
+        $url = sprintf($header, $this->getRequest()->getBasePath(), $controller, $action);
+
+        if (!empty($params)) {
+            $url .= '?' . http_build_query($params);
+        }
+
         header(
-            sprintf($header, $this->getRequest()->getBasePath(), $controller, $action),
+            $url,
             true,
             $responseCode
         );
