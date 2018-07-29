@@ -31,7 +31,10 @@ Array.from(document.querySelectorAll('.service-select--dropdown input')).forEach
         if (event.target.checked) {
             Array.from(document.querySelectorAll(selectorHandle)).forEach((element) =>
             {
-                element.parentElement.parentElement.removeAttribute('style');
+                let container = element.parentElement.parentElement;
+
+                container.removeAttribute('style');
+                container.scrollIntoView(true);
             });
         }
     });

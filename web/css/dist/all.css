@@ -732,6 +732,7 @@ fieldset {
 
 .service-select--dropdown {
   position: relative;
+  margin-top: 1.5rem;
 }
 
 .service-select--dropdown dl {
@@ -867,9 +868,6 @@ fieldset {
   }
   .service-form .row {
     width: calc(100% + 1.5rem);
-  }
-  .service-form .row.service:first-child {
-    padding-top: 0;
   }
   .service-form .row .column {
     padding: 0.7rem 1rem;

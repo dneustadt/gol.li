@@ -3,7 +3,7 @@
         <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post" class="service-form">
             <div class="row" data-sticky-container="true">
                 <div class="column service-select">
-                    <div class="service-select--dropdown" data-sticky="true" data-margin-top="20">
+                    <div class="service-select--dropdown" data-sticky="true">
                         <button type="button" class="dropdown-label">+ Add services</button>
                         <dl>
                             <?php foreach (@$data['services'] as $service): ?>
