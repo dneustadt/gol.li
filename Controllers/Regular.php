@@ -45,7 +45,7 @@ class Regular extends ControllerAbstract
         }
 
         return [
-            'title' => 'gol.li',
+            'title' => 'gol.li - the social network hub',
             'login_error' => $this->getRequest()->get('login_error'),
         ];
     }
