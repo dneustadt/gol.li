@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="<?= @$data['base_path']; ?>/web/css/dist/all.min.css">
     </head>
-    <body>
+    <body class="<?= @$data['controller']; ?><?php if (!@$data['is_loggedin']): ?> logged-out<?php endif; ?>">
         <?php if (@$data['no_skeleton']): ?>
             <?php include @$data['template']; ?>
             </body></html>

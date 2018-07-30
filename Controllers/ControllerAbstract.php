@@ -262,6 +262,7 @@ abstract class ControllerAbstract implements ControllerInterface
         $data['base_path'] = $this->getRequest()->getBasePath();
         $data['is_loggedin'] = $this->isLoggedIn();
         $data['username'] = $this->getSession()->get('username');
+        $data['controller'] = $this->getRequest()->getControllerName() ?: 'home';
 
         ob_start();
         include $this->getRequest()->getAppPath('Views') .

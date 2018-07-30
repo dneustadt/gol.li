@@ -17,10 +17,18 @@
 }
 
 body {
-  background: $body-bg;
+  background: $color-quinary;
   padding: 0;
   margin: 0;
   font-family: 'Dosis', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  &.home.logged-out {
+    header {
+      display: none;
+    }
+    main.wrapper {
+      padding: 1rem 0 5rem 0;
+    }
+  }
 }
 
 header {
@@ -33,10 +41,15 @@ header {
   }
 }
 
+main.wrapper {
+  background: $body-bg;
+  padding: 5rem 0 5rem 0;
+}
+
 h2 {
   text-align: center;
   font-size: 5rem;
-  padding: 5rem 0 3rem 0;
+  padding: 0 0 3rem 0;
   margin: 0;
   &.logo {
     font-family: 'sloped', 'Dosis', sans-serif;
@@ -57,7 +70,6 @@ h3.subline {
 footer {
   background: $color-quinary;
   border-top: 1px solid $color-quaternary;
-  margin: 5rem 0 0 0;
 }
 
 input[type='email'],
