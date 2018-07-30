@@ -27,6 +27,10 @@
 
         <footer class="wrapper">
             <section class="container clearfix">
+                <p class="float-left github">
+                    <a class="github-button" href="https://github.com/dneustadt/gol.li" data-size="large" aria-label="Star gol.li on GitHub">gol.li @ GitHub</a>
+                    <a class="github-button" href="https://github.com/dneustadt/gol.li/issues" data-icon="octicon-issue-opened" data-size="large" aria-label="Issue gol.li on GitHub">Issue</a>
+                </p>
                 <p class="float-right">
                     <a href="<?= @$data['base_path']; ?>/terms" title="Terms of Service">Terms of Service</a>&nbsp;&nbsp;|&nbsp;
                     <a href="<?= @$data['base_path']; ?>/terms/privacy" title="Privacy Policy">Privacy Policy</a>&nbsp;&nbsp;|&nbsp;
@@ -35,5 +39,6 @@
             </section>
         </footer>
         <script type="text/javascript" src="<?= @$data['base_path']; ?>/web/js/dist/scripts.min.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
     </body>
 </html>

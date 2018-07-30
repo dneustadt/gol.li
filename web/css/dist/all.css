@@ -678,6 +678,10 @@ footer {
   border-top: 1px solid #d1d1d1;
 }
 
+.github {
+  margin: 0.4rem 0;
+}
+
 input[type='email'],
 input[type='number'],
 input[type='password'],
