@@ -616,6 +616,24 @@ body.home.logged-out main.wrapper {
   padding: 1rem 0 5rem 0;
 }
 
+.advantages {
+  position: relative;
+}
+
+.advantages .demo-link {
+  position: absolute;
+  right: 0;
+  top: 2.5rem;
+  width: 7rem;
+  height: 7rem;
+  line-height: normal;
+  padding: 1.8rem 0;
+  border-radius: 50%;
+  transform: rotateZ(20deg);
+  background: #ff5544;
+  border: 0;
+}
+
 header {
   background: #f4f5f6;
   height: 5rem;

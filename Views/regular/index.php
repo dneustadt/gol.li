@@ -187,7 +187,7 @@
 <?php else: ?>
     <?php if (!@$data['is_loggedin']): ?>
         <div class="row">
-            <div class="column">
+            <div class="column advantages">
                 <h2 class="logo">gol.li</h2>
                 <h3 class="subline">the social network hub</h3>
                 <blockquote>
@@ -200,6 +200,7 @@
                     <li>Easily embedd a widget of your hub on your website, or...</li>
                     <li>...fetch the raw data as JSON for use in your own app</li>
                 </ul>
+                <a href="<?= @$data['base_path']; ?>/demo" class="button demo-link">Demo<br>Profile</a>
             </div>
             <div class="column">
                 <?php include __DIR__ . '/../_partials/front-display.php'; ?>
