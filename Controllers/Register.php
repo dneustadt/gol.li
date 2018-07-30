@@ -57,7 +57,7 @@ EOD;
                 'Your registration at gol.li',
                 $message,
                 "From: gol.li <no-reply@gol.li>\r\nReply-To: gol.li <no-reply@gol.li>\r\n" .
-                    "Organization: gol.li\r\nMIME-Version: 1.0\r\n\Content-type: text/plain; charset=utf-8\r\n" .
+                    "Organization: gol.li\r\nMIME-Version: 1.0\r\nContent-type: text/plain; charset=utf-8\r\n" .
                     "X-Priority: 3\r\nX-Mailer: PHP" . phpversion()
             );
 
