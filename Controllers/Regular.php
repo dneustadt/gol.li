@@ -69,7 +69,15 @@ class Regular extends ControllerAbstract
                     continue;
                 }
 
-                $userService->setHandle($serviceValue);
+                $userService->setHandle(
+                    implode(
+                        '/',
+                        array_map(
+                            'rawurlencode',
+                            explode('/', urldecode($serviceValue))
+                        )
+                    )
+                );
                 $userService->setPosition($position);
 
                 $this->getDb()->insert($userService, true);
@@ -102,7 +110,7 @@ class Regular extends ControllerAbstract
 
                 foreach ($services as $service) {
                     if (!empty($service['handle'])) {
-                        $urls[$service['name']] = sprintf($service['url'], rawurlencode($service['handle']));
+                        $urls[$service['name']] = sprintf($service['url'], $service['handle']);
                     }
                 }
 
