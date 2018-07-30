@@ -15,9 +15,9 @@
                 <img class="icon" src="<?= @$data['base_path']; ?>/web/icons/youtube.svg" alt="YouTube">
             </span>
         </a>
-        <a href="#" title="Tumblr">
+        <a href="#" title="Twitter">
             <span class="service-icon">
-                <img class="icon" src="<?= @$data['base_path']; ?>/web/icons/tumblr.svg" alt="Tumblr">
+                <img class="icon" src="<?= @$data['base_path']; ?>/web/icons/twitter.svg" alt="Twitter">
             </span>
         </a>
         <a href="#" title="Google+">

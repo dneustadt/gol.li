@@ -188,6 +188,25 @@
     <?php if (!@$data['is_loggedin']): ?>
         <div class="row">
             <div class="column">
+                <h2 class="logo">gol.li</h2>
+                <h3 class="subline">the social network profile hub</h3>
+                <blockquote>
+                    <p><em>All of your social network profiles in one place.</em></p>
+                </blockquote>
+                <ul>
+                    <li>All of the most important social networks included</li>
+                    <li>Collect &amp; manage your profile pages</li>
+                    <li>Get a short, memorable URL to your profile hub</li>
+                    <li>Easily embedd a widget of your hub on your website, or...</li>
+                    <li>...fetch the raw data as JSON for use in your own app</li>
+                </ul>
+            </div>
+            <div class="column">
+                <?php include __DIR__ . '/../_partials/front-display.php'; ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
                 <fieldset class="login-form">
                     <legend>Login:</legend>
                     <form action="<?= @$data['base_path']; ?>/login" method="post">

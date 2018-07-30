@@ -626,6 +626,21 @@ h2 {
   margin: 0;
 }
 
+h2.logo {
+  font-family: 'sloped', 'Dosis', sans-serif;
+  font-size: 10rem;
+  line-height: 5rem;
+  padding: 5rem 0 1rem 0;
+}
+
+h3.subline {
+  text-align: center;
+}
+
+.front-display {
+  padding-top: 2rem;
+}
+
 footer {
   background: #f4f5f6;
   border-top: 1px solid #d1d1d1;

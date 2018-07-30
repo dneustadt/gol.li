@@ -38,6 +38,20 @@ h2 {
   font-size: 5rem;
   padding: 5rem 0 3rem 0;
   margin: 0;
+  &.logo {
+    font-family: 'sloped', 'Dosis', sans-serif;
+    font-size: 10rem;
+    line-height: 5rem;
+    padding: 5rem 0 1rem 0;
+  }
+}
+
+h3.subline {
+  text-align: center;
+}
+
+.front-display {
+  padding-top: 2rem;
 }
 
 footer {
