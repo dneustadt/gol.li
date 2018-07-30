@@ -160,13 +160,13 @@ abstract class ControllerAbstract implements ControllerInterface
         $responseCode = 302,
         $params = []
     ) {
-        $header = 'Location: %s/%s/%s/%s';
+        $header = 'Location: %s%s/%s/%s';
 
         if ($action === 'index') {
-            $header = 'Location: %s/%s/%s';
+            $header = 'Location: %s%s/%s';
 
             if ($controller === 'regular') {
-                $header = 'Location: %s/%s';
+                $header = 'Location: %s%s';
             }
         }
 
