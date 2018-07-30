@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="<?= @$data['base_path']; ?>/web/css/dist/all.min.css">
     </head>
     <body>
-        <?php if(@$data['no_skeleton']): ?>
+        <?php if (@$data['no_skeleton']): ?>
             <?php include @$data['template']; ?>
             </body></html>
             <?php return; ?>
