@@ -201,7 +201,7 @@ abstract class ControllerAbstract implements ControllerInterface
             $username = $this->getRequest()->getPost('_username');
             $password = $this->getRequest()->getPost('_password');
 
-            $sql = 'SELECT `id`, `password` FROM `users` WHERE `username` = :username';
+            $sql = 'SELECT `id`, `password` FROM `users` WHERE `username` = :username AND `verified` = 1';
             $sql = $isAdmin ? $sql . ' AND `admin` = 1' : $sql;
 
             $stmt = $this->getDb()->prepare($sql);

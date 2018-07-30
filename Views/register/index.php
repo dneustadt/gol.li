@@ -6,7 +6,7 @@
         </div>
         <?php if (@$data['error']['username_taken']): ?>
             <ul class="errors">
-                <li>The username was already taken</li>
+                <li>The username was already taken or the email address is already registered</li>
             </ul>
         <?php endif; ?>
         <?php if (@$data['error']['username']): ?>
@@ -36,19 +36,22 @@
                 <li>The provided passwords didn't match</li>
             </ul>
         <?php endif; ?>
+        <div class="register-form--field">
+            <input placeholder="eMail" type="email" id="email" name="_email" required>
+            <p>
+                <strong>Note:</strong> You will have to confirm your email address to complete the registration.
+            </p>
+        </div>
+        <?php if (@$data['error']['email']): ?>
+            <ul class="errors">
+                <li>Please provide a valid email address</li>
+            </ul>
+        <?php endif; ?>
         <?php if (@$data['error']['all']): ?>
             <ul class="errors">
                 <li>Please provide all necessary information</li>
             </ul>
         <?php endif; ?>
-        <div class="register-form--field">
-            <input placeholder="eMail (optional)" type="email" id="email" name="_email">
-            <p>
-                <strong>Note:</strong> You don't have to provide an e-mail address but you won't be able to
-                recover your account if you forget your password. Unused accounts without signs of usage are also
-                subject to be deleted at some time.
-            </p>
-        </div>
         <div class="register-form--field">
             <button type="submit">Register</button>
         </div>
