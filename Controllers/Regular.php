@@ -102,7 +102,7 @@ class Regular extends ControllerAbstract
 
                 foreach ($services as $service) {
                     if (!empty($service['handle'])) {
-                        $urls[$service['name']] = sprintf($service['url'], urlencode($service['handle']));
+                        $urls[$service['name']] = sprintf($service['url'], rawurlencode($service['handle']));
                     }
                 }
 
