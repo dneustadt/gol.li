@@ -45,6 +45,7 @@ class Request
 
     /**
      * @param bool $withProtocol
+     *
      * @return mixed|string
      */
     public function getHost($withProtocol = false)
