@@ -47,17 +47,17 @@ class Register extends ControllerAbstract
 Hello {$user->getUsername()},
 
 to complete your registration at gol.li please click the link below:
-{$this->getRequest()->getHost(true)}/register/complete?id={$user->getId()}&session={$user->getSessionID()}
+{$this->getRequest()->getHost(true)}{$this->getRequest()->getBasePath()}/register/complete?id={$this->getDb()->lastInsertId()}&session={$user->getSessionID()}
 
 If it wasn't you who registered this email address, just ignore this message.
 EOD;
-            $header = [
-                'From' => 'no-reply@gol.li',
-                'Reply-To' => 'no-reply@gol.li',
-                'X-Mailer' => 'PHP/' . phpversion(),
-            ];
 
-            mail($user->getEmail(), 'Your registration at gol.li', $message, $header);
+            mail(
+                $user->getEmail(),
+                'Your registration at gol.li',
+                $message,
+                'From: gol.li <no-reply@gol.li>'
+            );
 
             $this->redirect('register', 'confirm');
 
@@ -92,15 +92,15 @@ EOD;
     public function completeAction()
     {
         $id = (int) $this->getRequest()->get('id');
-        $session = $this->getRequest()->get('session');
+        $sessionID = $this->getRequest()->get('session');
 
-        if (!empty($id) && !empty($session)) {
-            $sql = 'UPDATE `users` SET `verified` = 1 WHERE `id` = :id AND `session` = :session';
+        if (!empty($id) && !empty($sessionID)) {
+            $sql = 'UPDATE `users` SET `verified` = 1 WHERE `id` = :id AND `sessionID` = :sessionId';
 
             $stmt = $this->getDb()->prepare($sql);
 
             $stmt->bindValue(':id', $id);
-            $stmt->bindValue(':session', $session);
+            $stmt->bindValue(':sessionId', $sessionID);
             $stmt->execute();
         }
 
