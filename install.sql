@@ -59,4 +59,8 @@ VALUES
 	(35, 'Steam', 'https://steamcommunity.com/id/%s', '/web/icons/steam.svg', 24),
 	(36, 'ESL Gaming', 'https://play.eslgaming.com/player/%s', '/web/icons/esl.svg', 25),
 	(37, 'Patreon', 'https://patreon.com/%s', '/web/icons/patreon.svg', 26),
-	(38, 'Kickstarter', 'https://kickstarter.com/profile/%s', '/web/icons/kickstarter.svg', 27);
+	(38, 'Kickstarter', 'https://kickstarter.com/profile/%s', '/web/icons/kickstarter.svg', 27),
+	(40, 'GitHub', 'https://github.com/%s', '/web/icons/github.svg', 28),
+	(41, 'DevRant', 'https://devrant.com/users/%s', '/web/icons/devrant.svg', 29),
+	(42, 'Stack Overflow', 'https://stackoverflow.com/users/%s', '/web/icons/stackoverflow.svg', 30);
+;

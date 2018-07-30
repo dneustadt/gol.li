@@ -173,7 +173,7 @@ abstract class ControllerAbstract implements ControllerInterface
         $url = sprintf(
             $header,
             $this->getRequest()->getHost(true),
-            $this->getRequest()->getBasePath() === '/' ? '' : $this->getRequest()->getBasePath(),
+            $this->getRequest()->getBasePath(),
             $controller,
             $action
         );
@@ -259,7 +259,7 @@ abstract class ControllerAbstract implements ControllerInterface
         }
 
         $data['template'] = $this->getTemplate();
-        $data['base_path'] = $this->getRequest()->getBasePath() === '/' ? '' : $this->getRequest()->getBasePath();
+        $data['base_path'] = $this->getRequest()->getBasePath();
         $data['is_loggedin'] = $this->isLoggedIn();
         $data['username'] = $this->getSession()->get('username');
 

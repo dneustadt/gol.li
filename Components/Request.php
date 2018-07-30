@@ -76,9 +76,7 @@ class Request
      */
     public function getBasePath()
     {
-        $basePath = substr(APP_PATH, strlen($this->__server['DOCUMENT_ROOT']));
-
-        return !empty($basePath) ? $basePath : '/';
+        return substr(APP_PATH, strlen($this->__server['DOCUMENT_ROOT']));
     }
 
     /**
