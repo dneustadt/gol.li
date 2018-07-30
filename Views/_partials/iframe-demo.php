@@ -39,7 +39,7 @@
     <div class="clearfix"></div>
     <footer>
         <a href="#" class="float-right">gol.li</a>
-        <span class="float-right">social profile hub powered by</span>
+        <span class="float-right">social network hub powered by</span>
         <div class="clearfix"></div>
     </footer>
 </div>

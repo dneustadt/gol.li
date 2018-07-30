@@ -18,7 +18,7 @@
 
 <h3>Privacy Policy</h3>
 
-<p>For information about how we collect and use information about users of the Service, please check out our privacy policy available at <strong><a href="<?= @$data['base_path']; ?>/terms/privacy">http://gol.li<?= @$data['base_path']; ?>/terms/privacy</a></strong>.</p>
+<p>For information about how we collect and use information about users of the Service, please check out our privacy policy available at <strong><a href="<?= @$data['base_path']; ?>/terms/privacy">https://gol.li<?= @$data['base_path']; ?>/terms/privacy</a></strong>.</p>
 
 <h3>Third-Party Services</h3>
 

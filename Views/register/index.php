@@ -17,7 +17,7 @@
         <?php else: ?>
             <dl>
                 <dt><strong>Note:</strong> The username must be at least 3 characters long, consist of all lowercase characters, numbers or
-                    underscores. It will also determine the URL to your personal hub e.g. http://gol.li/my_username</dt>
+                    underscores. It will also determine the URL to your personal hub e.g. https://gol.li/demo</dt>
             </dl>
         <?php endif; ?>
         <div class="register-form--field">

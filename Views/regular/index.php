@@ -94,7 +94,7 @@
             <div class="column">
                 <p>Add the json parameter to receive raw data as JSON.</p>
                 <pre>
-    curl http://gol.li<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/share?json=1</pre>
+    curl https://gol.li<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/share?json=1</pre>
             </div>
             <div class="column">
                 <p>Response:</p>
@@ -189,14 +189,14 @@
         <div class="row">
             <div class="column">
                 <h2 class="logo">gol.li</h2>
-                <h3 class="subline">the social network profile hub</h3>
+                <h3 class="subline">the social network hub</h3>
                 <blockquote>
                     <p><em>All of your social network profiles in one place.</em></p>
                 </blockquote>
                 <ul>
                     <li>All of the most important social networks included</li>
                     <li>Collect &amp; manage your profile pages</li>
-                    <li>Get a short, memorable URL to your profile hub</li>
+                    <li>Get a short, memorable URL to your social network hub</li>
                     <li>Easily embedd a widget of your hub on your website, or...</li>
                     <li>...fetch the raw data as JSON for use in your own app</li>
                 </ul>
