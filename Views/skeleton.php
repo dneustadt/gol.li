@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="<?= @$data['base_path']; ?>/web/css/dist/all.min.css">
+        <link rel="shortcut icon" type="image/x-icon" href="<?= @$data['base_path']; ?>/favicon.ico">
     </head>
     <body class="<?= @$data['controller']; ?><?php if (!@$data['is_loggedin']): ?> logged-out<?php endif; ?>">
         <?php if (@$data['no_skeleton']): ?>
