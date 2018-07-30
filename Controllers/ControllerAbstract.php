@@ -173,7 +173,7 @@ abstract class ControllerAbstract implements ControllerInterface
         $url = sprintf(
             $header,
             $this->getRequest()->getHost(true),
-            $this->getRequest()->getBasePath(),
+            $this->getRequest()->getBasePath() === '/' ? '' : $this->getRequest()->getBasePath(),
             $controller,
             $action
         );
