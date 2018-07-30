@@ -60,7 +60,7 @@ class Request
     {
         $basePath = substr(APP_PATH, strlen($this->__server['DOCUMENT_ROOT']));
 
-        return !empty($basePath) ?: '/';
+        return !empty($basePath) ? $basePath : '/';
     }
 
     /**
