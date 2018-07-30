@@ -107,6 +107,8 @@ class Regular extends ControllerAbstract
                 }
 
                 header('Content-Type: application/json');
+                header('Access-Control-Allow-Origin: *');
+                header('Access-Control-Allow-Headers: Origin, X-Requested-With, X-CSRF-Token, Content-Type, Accept');
                 echo json_encode($urls, JSON_PRETTY_PRINT);
                 die();
             }

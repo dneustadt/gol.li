@@ -16,7 +16,8 @@
             </ul>
         <?php else: ?>
             <dl>
-                <dt><strong>Note:</strong> The username must be all lowercase characters or numbers and may further contain only underscores</dt>
+                <dt><strong>Note:</strong> The username must be at least 3 characters long, consist of all lowercase characters, numbers or
+                    underscores. It will also determine the URL to your personal hub e.g. http://gol.li/my_username</dt>
             </dl>
         <?php endif; ?>
         <div class="register-form--field">
@@ -41,7 +42,7 @@
             </ul>
         <?php endif; ?>
         <div class="register-form--field">
-            <input placeholder="eMail" type="email" id="email" name="_email">
+            <input placeholder="eMail (optional)" type="email" id="email" name="_email">
             <p>
                 <strong>Note:</strong> You don't have to provide an e-mail address but you won't be able to
                 recover your account if you forget your password. Unused accounts without signs of usage are also
