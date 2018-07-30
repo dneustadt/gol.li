@@ -57,7 +57,7 @@
                                     $service['url'],
                                     '</div>' .
                                     '<div class="column handle">' .
-                                    '<input type="text" data-id="' . $service['id'] . '" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
+                                    '<input type="text" data-id="' . $service['id'] . '" name="services[' . $service['id'] . ']" value="' . urlencode(@$service['handle']) . '">' .
                                     '</div>' .
                                     '<div class="column url-pattern">'
                                 ); ?>
@@ -166,12 +166,12 @@
                     <span class="service-name"><?= $service['name']; ?></span>
                 </div>
                 <div class="column">
-                    <a href="<?= sprintf($service['url'], $service['handle']); ?>" target="_blank">
-                        <?= sprintf($service['url'], $service['handle']); ?>
+                    <a href="<?= sprintf($service['url'], urlencode($service['handle'])); ?>" target="_blank">
+                        <?= sprintf($service['url'], urlencode($service['handle'])); ?>
                     </a>
                 </div>
                 <div class="column actions">
-                    <a href="<?= sprintf($service['url'], $service['handle']); ?>" target="_blank">
+                    <a href="<?= sprintf($service['url'], urlencode($service['handle'])); ?>" target="_blank">
                         <svg x="0px" y="0px" width="12px" height="12px">
                             <g>
                                 <polygon id="box" style="fill-rule:evenodd;clip-rule:evenodd;" points="2,2 5,2 5,3 3,3 3,9 9,9 9,7 10,7 10,10 2,10"></polygon>
