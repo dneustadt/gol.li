@@ -44,6 +44,24 @@ class Request
     }
 
     /**
+     * @param bool $withProtocol
+     * @return mixed|string
+     */
+    public function getHost($withProtocol = false)
+    {
+        $protocol = strpos(strtolower($this->__server['SERVER_PROTOCOL']), 'https') === false ?
+            'http://' :
+            'https://';
+        $host = $this->__server['HTTP_HOST'];
+
+        if ($withProtocol) {
+            $host = $protocol . $host;
+        }
+
+        return $host;
+    }
+
+    /**
      * @param string $path
      *
      * @return string

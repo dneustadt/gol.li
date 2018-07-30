@@ -160,17 +160,23 @@ abstract class ControllerAbstract implements ControllerInterface
         $responseCode = 302,
         $params = []
     ) {
-        $header = 'Location: %s/%s/%s';
+        $header = 'Location: %s/%s/%s/%s';
 
         if ($action === 'index') {
-            $header = 'Location: %s/%s';
+            $header = 'Location: %s/%s/%s';
 
             if ($controller === 'regular') {
-                $header = 'Location: %s';
+                $header = 'Location: %s/%s';
             }
         }
 
-        $url = sprintf($header, $this->getRequest()->getBasePath(), $controller, $action);
+        $url = sprintf(
+            $header,
+            $this->getRequest()->getHost(true),
+            $this->getRequest()->getBasePath(),
+            $controller,
+            $action
+        );
 
         if (!empty($params)) {
             $url .= '?' . http_build_query($params);
