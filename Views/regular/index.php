@@ -105,40 +105,42 @@
             </div>
             <input type="radio" name="tabs" id="profile"<?php if (@!empty($data['error'])): ?> checked="checked"<?php endif; ?>>
             <label for="profile" class="tab-header">Profile</label>
-            <div class="row tab">
-                <div class="column">
-                    <fieldset class="profile-form">
-                        <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/updateProfile" method="post">
-                            <div class="profile-form--field">
-                                <input placeholder="Old Password" type="password" id="old_password" name="_old_password" required>
-                            </div>
-                            <?php if (@$data['error'] == 'password'): ?>
-                                <ul class="errors">
-                                    <li>The provided password is invalid</li>
-                                </ul>
-                            <?php endif; ?>
-                            <div class="profile-form--field">
-                                <input placeholder="New Password" type="password" id="new_password" name="_new_password">
-                            </div>
-                            <div class="profile-form--field">
-                                <input placeholder="Confirm New Password" type="password" id="new_password_confirm" name="_new_password_confirm">
-                            </div>
-                            <?php if (@$data['error'] == 'password_match'): ?>
-                                <ul class="errors">
-                                    <li>The passwords didn't match or the new password is too short (min. 6 characters)</li>
-                                </ul>
-                            <?php endif; ?>
-                            <div class="profile-form--field">
-                                <input placeholder="Email" type="text" id="email" name="_email"
-                                       <?php if (@$data['email']): ?> value="<?= @$data['email']; ?>"<?php endif; ?>>
-                            </div>
-                            <div class="profile-form--field">
-                                <button type="submit" class="float-right">Update</button>
-                            </div>
-                        </form>
-                    </fieldset>
+            <div class="tab">
+                <div class="row">
+                    <div class="column">
+                        <fieldset class="profile-form">
+                            <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/updateProfile" method="post">
+                                <div class="profile-form--field">
+                                    <input placeholder="Old Password" type="password" id="old_password" name="_old_password" required>
+                                </div>
+                                <?php if (@$data['error'] == 'password'): ?>
+                                    <ul class="errors">
+                                        <li>The provided password is invalid</li>
+                                    </ul>
+                                <?php endif; ?>
+                                <div class="profile-form--field">
+                                    <input placeholder="New Password" type="password" id="new_password" name="_new_password">
+                                </div>
+                                <div class="profile-form--field">
+                                    <input placeholder="Confirm New Password" type="password" id="new_password_confirm" name="_new_password_confirm">
+                                </div>
+                                <?php if (@$data['error'] == 'password_match'): ?>
+                                    <ul class="errors">
+                                        <li>The passwords didn't match or the new password is too short (min. 6 characters)</li>
+                                    </ul>
+                                <?php endif; ?>
+                                <div class="profile-form--field">
+                                    <input placeholder="Email" type="text" id="email" name="_email"
+                                           <?php if (@$data['email']): ?> value="<?= @$data['email']; ?>"<?php endif; ?>>
+                                </div>
+                                <div class="profile-form--field">
+                                    <button type="submit" class="float-right">Update</button>
+                                </div>
+                            </form>
+                        </fieldset>
+                    </div>
+                    <div class="column"></div>
                 </div>
-                <div class="column"></div>
             </div>
         </div>
         <div class="row">
