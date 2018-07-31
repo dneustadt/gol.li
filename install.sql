@@ -3,7 +3,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` text NOT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `hits` int(11) DEFAULT '0',
+  `hits` int(11) unsigned DEFAULT '0',
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `admin` tinyint(1) DEFAULT '0',
   `sessionID` text,
@@ -24,7 +24,7 @@ CREATE TABLE `services` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `user_services` (
-  `userID` int(11) NOT NULL,
+  `userID` int(11) unsigned NOT NULL,
   `serviceID` int(11) unsigned NOT NULL,
   `handle` varchar(255) NOT NULL,
   `position` int(11) NOT NULL DEFAULT '0',
