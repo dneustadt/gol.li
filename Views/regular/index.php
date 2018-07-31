@@ -12,143 +12,138 @@
                 </p>
             </div>
         </div>
-        <div class="row">
-            <div class="column profile-nav">
-                <a href="#share" class="button button-clear">Share & Embedd</a>
-                <a href="#profile" class="button button-clear">Update Profile</a>
-            </div>
-        </div>
-        <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post" class="service-form">
-            <div class="row" data-sticky-container="true">
-                <div class="column service-select">
-                    <div class="service-select--dropdown" data-sticky="true">
-                        <button type="button" class="dropdown-label">+ Add services</button>
-                        <dl>
-                            <?php foreach (@$data['services'] as $service): ?>
-                                <dt>
-                                    <input type="checkbox" id="service-select--<?= $service['id']; ?>" value="<?= $service['id']; ?>"
-                                        <?php if (!empty($service['handle'])): ?> checked="checked"<?php endif; ?>>
-                                    <label for="service-select--<?= $service['id']; ?>">
-                                        <span class="service-icon">
-                                            <?php if (!empty($service['image'])): ?>
-                                                <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
-                                            <?php endif; ?>
-                                        </span>
-                                        <span class="service-name"><?= $service['name']; ?></span>
-                                    </label>
-                                </dt>
-                            <?php endforeach; ?>
-                        </dl>
+        <div class="tab-container">
+            <input type="radio" name="tabs" id="services"<?php if (@empty($data['error'])): ?> checked="checked"<?php endif; ?>>
+            <label for="services" class="tab-header">Services</label>
+            <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post"
+                  class="service-form tab">
+                <div class="row" data-sticky-container="true">
+                    <div class="column service-select">
+                        <div class="service-select--dropdown" data-sticky="true">
+                            <button type="button" class="dropdown-label">+ Add services</button>
+                            <dl>
+                                <?php foreach (@$data['services'] as $service): ?>
+                                    <dt>
+                                        <input type="checkbox" id="service-select--<?= $service['id']; ?>" value="<?= $service['id']; ?>"
+                                            <?php if (!empty($service['handle'])): ?> checked="checked"<?php endif; ?>>
+                                        <label for="service-select--<?= $service['id']; ?>">
+                                            <span class="service-icon">
+                                                <?php if (!empty($service['image'])): ?>
+                                                    <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
+                                                <?php endif; ?>
+                                            </span>
+                                            <span class="service-name"><?= $service['name']; ?></span>
+                                        </label>
+                                    </dt>
+                                <?php endforeach; ?>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="column service-rows">
+                        <?php foreach (@$data['services'] as $service): ?>
+                            <div class="row service"<?php if (empty($service['handle'])): ?> style="display: none;"<?php endif; ?>>
+                                <div class="column column-25">
+                                    <span class="service-icon">
+                                        <?php if (!empty($service['image'])): ?>
+                                            <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
+                                        <?php endif; ?>
+                                    </span>
+                                    <span class="service-name"><?= $service['name']; ?></span>
+                                </div>
+                                <div class="column url-pattern">
+                                    <?= sprintf(
+                                        $service['url'],
+                                        '</div>' .
+                                        '<div class="column handle">' .
+                                        '<input type="text" data-id="' . $service['id'] . '" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
+                                        '</div>' .
+                                        '<div class="column url-pattern">'
+                                    ); ?>
+                                </div>
+                                <div class="column remove">
+                                    <button class="remove--button" type="button" data-id="<?= $service['id']; ?>">&times;</button>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-                <div class="column service-rows">
-                    <?php foreach (@$data['services'] as $service): ?>
-                        <div class="row service"<?php if (empty($service['handle'])): ?> style="display: none;"<?php endif; ?>>
-                            <div class="column column-25">
-                                <span class="service-icon">
-                                    <?php if (!empty($service['image'])): ?>
-                                        <img class="icon" src="<?= @$data['base_path']; ?><?= $service['image']; ?>" alt="<?= $service['name']; ?>">
-                                    <?php endif; ?>
-                                </span>
-                                <span class="service-name"><?= $service['name']; ?></span>
-                            </div>
-                            <div class="column url-pattern">
-                                <?= sprintf(
-                                    $service['url'],
-                                    '</div>' .
-                                    '<div class="column handle">' .
-                                    '<input type="text" data-id="' . $service['id'] . '" name="services[' . $service['id'] . ']" value="' . @$service['handle'] . '">' .
-                                    '</div>' .
-                                    '<div class="column url-pattern">'
-                                ); ?>
-                            </div>
-                            <div class="column remove">
-                                <button class="remove--button" type="button" data-id="<?= $service['id']; ?>">&times;</button>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <button type="submit" class="float-right">Save</button>
-        </form>
-        <div class="row">
-            <div class="column">
-                <h3 id="share">Share &amp; Embedd</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column">
-                <p>Embedd a ready-made widget with links to all your profiles.</p>
-                <pre>
+                <button type="submit" class="float-right">Save</button>
+            </form>
+            <input type="radio" name="tabs" id="share">
+            <label class="tab-header" for="share">Share & Embedd</label>
+            <div class="tab">
+                <div class="row">
+                    <div class="column">
+                        <p>Embedd a ready-made widget with links to all your profiles.</p>
+                        <pre>
     <?= htmlentities('<iframe src="//gol.li'); ?><?= @$data['base_path']; ?>/<?= @$data['name']; ?><?= htmlentities('/share"
             style="width: 320px; 
                    height: 80px;
                    border: 1px solid #ccc;"></iframe>'); ?></pre>
-            </div>
-            <div class="column">
-                <p>Preview:</p>
-                <?php include __DIR__ . '/../_partials/iframe-demo.php'; ?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column">
-                <p>Add the json parameter to receive raw data as JSON.</p>
-                <pre>
+                    </div>
+                    <div class="column">
+                        <p>Preview:</p>
+                        <?php include __DIR__ . '/../_partials/iframe-demo.php'; ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                    <p>Add the json parameter to receive raw data as JSON.</p>
+                    <pre>
     curl https://gol.li<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/share?json=1</pre>
-            </div>
-            <div class="column">
-                <p>Response:</p>
-                <pre>
+                    </div>
+                    <div class="column">
+                        <p>Response:</p>
+                        <pre>
     {
         "Facebook": "https:\/\/facebook.com\/foo",
         "Instagram": "https:\/\/instagram.com\/bar",
         "YouTube": "https:\/\/youtube.com\/user\/foobar"
     }</pre>
+                    </div>
+                </div>
+            </div>
+            <input type="radio" name="tabs" id="profile"<?php if (@!empty($data['error'])): ?> checked="checked"<?php endif; ?>>
+            <label for="profile" class="tab-header">Profile</label>
+            <div class="row tab">
+                <div class="column">
+                    <fieldset class="profile-form">
+                        <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/updateProfile" method="post">
+                            <div class="profile-form--field">
+                                <input placeholder="Old Password" type="password" id="old_password" name="_old_password" required>
+                            </div>
+                            <?php if (@$data['error'] == 'password'): ?>
+                                <ul class="errors">
+                                    <li>The provided password is invalid</li>
+                                </ul>
+                            <?php endif; ?>
+                            <div class="profile-form--field">
+                                <input placeholder="New Password" type="password" id="new_password" name="_new_password">
+                            </div>
+                            <div class="profile-form--field">
+                                <input placeholder="Confirm New Password" type="password" id="new_password_confirm" name="_new_password_confirm">
+                            </div>
+                            <?php if (@$data['error'] == 'password_match'): ?>
+                                <ul class="errors">
+                                    <li>The passwords didn't match or the new password is too short (min. 6 characters)</li>
+                                </ul>
+                            <?php endif; ?>
+                            <div class="profile-form--field">
+                                <input placeholder="Email" type="text" id="email" name="_email"
+                                       <?php if (@$data['email']): ?> value="<?= @$data['email']; ?>"<?php endif; ?>>
+                            </div>
+                            <div class="profile-form--field">
+                                <button type="submit" class="float-right">Update</button>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+                <div class="column"></div>
             </div>
         </div>
         <div class="row">
             <div class="column">
-                <h3 id="profile">Update Profile</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column">
-                <fieldset class="profile-form">
-                    <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/updateProfile" method="post">
-                        <div class="profile-form--field">
-                            <input placeholder="Old Password" type="password" id="old_password" name="_old_password" required>
-                        </div>
-                        <?php if (@$data['error'] == 'password'): ?>
-                            <ul class="errors">
-                                <li>The provided password is invalid</li>
-                            </ul>
-                        <?php endif; ?>
-                        <div class="profile-form--field">
-                            <input placeholder="New Password" type="password" id="new_password" name="_new_password">
-                        </div>
-                        <div class="profile-form--field">
-                            <input placeholder="Confirm New Password" type="password" id="new_password_confirm" name="_new_password_confirm">
-                        </div>
-                        <?php if (@$data['error'] == 'password_match'): ?>
-                            <ul class="errors">
-                                <li>The passwords didn't match or the new password is too short (min. 6 characters)</li>
-                            </ul>
-                        <?php endif; ?>
-                        <div class="profile-form--field">
-                            <input placeholder="Email" type="text" id="email" name="_email"
-                                   <?php if (@$data['email']): ?> value="<?= @$data['email']; ?>"<?php endif; ?>>
-                        </div>
-                        <div class="profile-form--field">
-                            <button type="submit" class="float-right">Update</button>
-                        </div>
-                    </form>
-                </fieldset>
-            </div>
-            <div class="column"></div>
-        </div>
-        <div class="row">
-            <div class="column">
-                <a href="<?= @$data['base_path']; ?>/logout" class="button float-right">Logout</a>
+                <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>
             </div>
         </div>
     <?php else: ?>
