@@ -213,6 +213,7 @@ fieldset {
     max-height: 20.2rem;
     overflow-y: auto;
     background: $body-bg;
+    z-index: 999;
     &:hover {
       display: block;
     }
