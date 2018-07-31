@@ -35,7 +35,7 @@ ALTER TABLE `user_services`
 ADD CONSTRAINT service_id FOREIGN KEY (`serviceID`) REFERENCES `services`(`id`) ON DELETE CASCADE;
 
 ALTER TABLE `user_services`
-ADD CONSTRAINT user_id FOREIGN KEY (`userID`) REFERENCES `user`(`id`) ON DELETE CASCADE;
+ADD CONSTRAINT user_id FOREIGN KEY (`userID`) REFERENCES `users`(`id`) ON DELETE CASCADE;
 
 INSERT INTO `services` (`id`, `name`, `url`, `image`, `priority`)
 VALUES
