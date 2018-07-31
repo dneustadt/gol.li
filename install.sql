@@ -25,11 +25,14 @@ CREATE TABLE `services` (
 
 CREATE TABLE `user_services` (
   `userID` int(11) NOT NULL,
-  `serviceID` int(11) NOT NULL,
+  `serviceID` int(11) unsigned NOT NULL,
   `handle` varchar(255) NOT NULL,
   `position` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`userID`,`serviceID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `user_services`
+ADD CONSTRAINT service_id FOREIGN KEY (`serviceID`) REFERENCES `services`(`id`);
 
 INSERT INTO `services` (`id`, `name`, `url`, `image`, `priority`)
 VALUES
