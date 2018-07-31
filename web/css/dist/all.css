@@ -984,6 +984,10 @@ fieldset {
   right: 0;
 }
 
+.tab-container input + .tab-header:hover {
+  background: #fff;
+}
+
 .tab-container input + .tab-header + .tab {
   display: none;
 }
@@ -995,13 +999,18 @@ fieldset {
 
 .tab-container input:checked + .tab-header + .tab {
   display: block;
-  padding: 2rem 0 0 0;
+  padding: 3.5rem 0 0 0;
   margin-top: -1px;
   border-top: 1px solid #e1e1e1;
 }
 
 .tab-container input:checked + .tab-header + .tab.row {
   display: flex;
+  padding: 4rem 0 0 0;
+}
+
+.tab-container input:checked + .tab-header + .tab.service-form {
+  padding: 2rem 0 0 0;
 }
 
 input#services, input#share, input#profile {

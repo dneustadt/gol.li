@@ -369,20 +369,29 @@ fieldset {
   input#profile + .tab-header {
     right: 0;
   }
-  input + .tab-header + .tab {
-    display: none;
+  input + .tab-header {
+    &:hover {
+      background: $body-bg;
+    }
+    & + .tab {
+      display: none;
+    }
   }
   input:checked + .tab-header {
     background: $body-bg;
     border-bottom: 0;
     & + .tab {
       display: block;
-      padding: 2rem 0 0 0;
+      padding: 3.5rem 0 0 0;
       margin-top: -1px;
       border-top: 1px solid $color-tertiary;
       &.row {
         display: flex;
+        padding: 4rem 0 0 0;
       }
+      &.service-form {
+         padding: 2rem 0 0 0;
+       }
     }
   }
 }
