@@ -17,7 +17,7 @@
 </IfModule>
 
 # Disables download of configuration
-<Files ~ "\.(tpl|json|sql)$">
+<Files ~ "\.(scss|dist|sql)$">
     # Deny all requests from Apache 2.4+.
     <IfModule mod_authz_core.c>
           Require all denied
