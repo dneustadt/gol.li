@@ -601,6 +601,11 @@ img {
   src: local("Dosis Regular"), local("Dosis-Regular"), url("../../fonts/dosis-v7-latin-regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/dosis-v7-latin-regular.woff2") format("woff2"), url("../../fonts/dosis-v7-latin-regular.woff") format("woff"), url("../../fonts/dosis-v7-latin-regular.ttf") format("truetype"), url("../../fonts/dosis-v7-latin-regular.svg#Dosis") format("svg");
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   background: #f4f5f6;
   padding: 0;
@@ -910,6 +915,7 @@ fieldset {
 }
 
 .share-icons {
+  height: 100%;
   background: #fff;
 }
 
@@ -926,6 +932,7 @@ fieldset {
 }
 
 .share-icons .share-icons--container {
+  height: 100%;
   padding: 0.25rem 0.45rem;
 }
 

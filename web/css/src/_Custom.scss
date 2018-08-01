@@ -16,6 +16,11 @@
   url('../../fonts/dosis-v7-latin-regular.svg#Dosis') format('svg');
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   background: $color-quinary;
   padding: 0;
@@ -305,6 +310,7 @@ fieldset {
 }
 
 .share-icons {
+  height: 100%;
   background: $body-bg;
   &.demo {
     position: relative;
@@ -317,6 +323,7 @@ fieldset {
     }
   }
   .share-icons--container {
+    height: 100%;
     padding: 0.25rem 0.45rem;
     a {
       display: block;
