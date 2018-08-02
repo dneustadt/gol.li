@@ -173,7 +173,24 @@ class Regular extends ControllerAbstract
             if (!empty($newPassword)) {
                 $user->setNewPassword($newPassword);
             }
-            $user->setEmail($email);
+
+            if ($email !== $user->getEmail()) {
+                $sql = 'SELECT `id` FROM `users` WHERE `email` = :email';
+                $stmt = $this->getDb()->prepare($sql);
+                $stmt->bindValue(':email', $email);
+                $stmt->execute();
+
+                if (empty($stmt->fetchColumn())) {
+                    $user->setEmail($email);
+                } else {
+                    $this->redirect(
+                        $this->getRequest()->getControllerName(),
+                        'index',
+                        302,
+                        ['error' => 'email']
+                    );
+                }
+            }
 
             $this->getDb()->update($user);
 

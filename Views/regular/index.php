@@ -133,6 +133,11 @@
                                     <input placeholder="Email" type="text" id="email" name="_email"
                                            <?php if (@$data['email']): ?> value="<?= @$data['email']; ?>"<?php endif; ?>>
                                 </div>
+                                <?php if (@$data['error'] == 'email'): ?>
+                                    <ul class="errors">
+                                        <li>The provided email address has already been registered</li>
+                                    </ul>
+                                <?php endif; ?>
                                 <div class="profile-form--field">
                                     <button type="submit" class="float-right">Update</button>
                                 </div>
