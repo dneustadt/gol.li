@@ -198,6 +198,25 @@ class Regular extends ControllerAbstract
         }
     }
 
+    public function deleteProfileAction()
+    {
+        if (!empty($this->getRequest()->getControllerName())) {
+            $userID = $this->getUserIdBySlug();
+
+            if ($userID === false || !$this->isOwner($userID)) {
+                $this->redirect('regular', 'index', 301);
+            }
+
+            $user = new User();
+            $user->setId($userID);
+
+            $this->getDb()->delete($user);
+            $this->getSession()->destroy();
+
+            $this->redirect('regular', 'index', 301);
+        }
+    }
+
     /**
      * @return mixed
      */

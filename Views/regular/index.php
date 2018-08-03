@@ -144,7 +144,13 @@
                             </form>
                         </fieldset>
                     </div>
-                    <div class="column"></div>
+                    <div class="column">
+                        <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/deleteProfile" class="delete-form">
+                            <label for="delete-confirm" class="float-right">Yes, I'm sure I want to delete my account and all associated data</label>
+                            <input type="checkbox" id="delete-confirm" class="confirm-checkbox float-right">
+                            <button type="submit" class="float-right" disabled="disabled">Delete Profile</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1029,6 +1029,18 @@ input#services, input#share, input#profile {
   height: 1px;
 }
 
+.delete-form label {
+  max-width: 90%;
+}
+
+.delete-form button {
+  clear: both;
+}
+
+.delete-form .confirm-checkbox {
+  margin: 0.7rem;
+}
+
 @media (min-width: 40rem) {
   .row.service.front {
     max-width: 60rem;
