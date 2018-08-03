@@ -80,6 +80,8 @@ class Backend extends ControllerAbstract
 
     public function addServiceAction()
     {
+        $this->checkLogin();
+
         $post = $this->getRequest()->getPost();
 
         if ($this->getRequest()->isPost()) {
