@@ -223,7 +223,8 @@ fieldset {
       display: block;
     }
   }
-  &:focus-within dl {
+  &:focus-within dl,
+  &::-moz-focus-inner dl {
     display: block;
   }
   .dropdown-label {
