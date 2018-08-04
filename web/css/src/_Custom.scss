@@ -223,14 +223,14 @@ fieldset {
       display: block;
     }
   }
-  &:focus-within dl,
-  &::-moz-focus-inner dl {
+  &:focus-within dl {
     display: block;
   }
   .dropdown-label {
     width: 100%;
     margin: 0;
-    &:focus + dl {
+    &:focus + dl,
+    &::-moz-focus-inner dl {
       display: block;
       border: 1px solid $color-secondary;
       border-top: 0;
