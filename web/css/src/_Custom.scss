@@ -229,8 +229,7 @@ fieldset {
   .dropdown-label {
     width: 100%;
     margin: 0;
-    &:focus + dl,
-    &::-moz-focus-inner dl {
+    &:focus + dl {
       display: block;
       border: 1px solid $color-secondary;
       border-top: 0;

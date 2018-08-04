@@ -39,3 +39,10 @@ Array.from(document.querySelectorAll('.service-select--dropdown input')).forEach
         }
     });
 });
+
+Array.from(document.querySelectorAll('.dropdown-label')).forEach((element) => {
+    // fix: no focus on button on Mac OS
+    element.addEventListener('click', function (event) {
+        event.target.focus();
+    });
+});

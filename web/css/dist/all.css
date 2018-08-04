@@ -819,8 +819,7 @@ fieldset {
   display: block;
 }
 
-.service-select--dropdown:focus-within dl,
-.service-select--dropdown::-moz-focus-inner dl {
+.service-select--dropdown:focus-within dl {
   display: block;
 }
 
