@@ -266,7 +266,7 @@ class Regular extends ControllerAbstract
         $services = $stmt->fetchAll(\PDO::FETCH_ASSOC) ?: [];
 
         foreach ($services as &$service) {
-            $pattern = '/^' . str_replace([':', '/', '%s'], ['%3A', '\/', '(.*?)'], $service['url']) . '$/i';
+            $pattern = '/^' . str_replace([':', '@', '/', '%s'], ['%3A', '%40', '\/', '(.*?)'], $service['url']) . '$/i';
             $cleanedHandle = str_replace(['http%3A//', 'www.'], ['https%3A//', ''], $service['handle']);
 
             if (!empty($cleanedHandle) && preg_match($pattern, $cleanedHandle, $matches)) {
