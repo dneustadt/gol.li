@@ -272,6 +272,10 @@ class Regular extends ControllerAbstract
             if (!empty($cleanedHandle) && preg_match($pattern, $cleanedHandle, $matches)) {
                 $service['handle'] = $matches[1];
             }
+
+            if (!$isOwner) {
+                $service['name'] = trim(preg_replace('/\([^)]+\)/','', $service['name']));
+            }
         }
 
         return $services;
