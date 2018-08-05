@@ -246,7 +246,7 @@ class Regular extends ControllerAbstract
      * @param mixed $userID
      * @param bool  $isOwner
      *
-     * @return array|bool
+     * @return array
      */
     private function getServicesWithHandlesByUserId($userID, $isOwner = true)
     {
@@ -263,6 +263,17 @@ class Regular extends ControllerAbstract
         $stmt->bindValue(':userId', $userID);
         $stmt->execute();
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $services = $stmt->fetchAll(\PDO::FETCH_ASSOC) ?: [];
+
+        foreach ($services as &$service) {
+            $pattern = '/^' . str_replace(['/', '%s'], ['\/', '(.*?)'], $service['url']) . '$/i';
+            $cleanedHandle = str_replace(['http://', 'www.'], ['https://', ''], $service['handle']);
+
+            if (!empty($cleanedHandle) && preg_match($pattern, $cleanedHandle, $matches)) {
+                $service['handle'] = $matches[1];
+            }
+        }
+
+        return $services;
     }
 }
