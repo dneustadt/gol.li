@@ -243,6 +243,7 @@
                                 <li>The provided combination of password and username is invalid</li>
                             </ul>
                         <?php endif; ?>
+                        <a href="<?= @$data['base_path']; ?>/login/reset" class="float-right">Forgotten password?</a>
                         <div class="login-form--field">
                             <button type="submit">Login</button>
                         </div>
