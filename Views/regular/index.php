@@ -7,7 +7,7 @@
                     You can manage your profile by adding services below and subsequently entering your corresponding user name or ID.<br>
                     Change the order of displayed services by clicking and dragging rows to the desired position.<br>
                     You can request a
-                    <a href="<?= @$data['base_path']; ?>/<?= @$data['username'] . '?preview=1'; ?>" target="_blank">preview</a>
+                    <a href="<?= @$data['base_path']; ?>/<?= @$data['username'] . '?preview=1'; ?>" target="_blank" class="inline-link">preview</a>
                     of your public profile while logged in.
                 </p>
             </div>
@@ -243,7 +243,7 @@
                                 <li>The provided combination of password and username is invalid</li>
                             </ul>
                         <?php endif; ?>
-                        <a href="<?= @$data['base_path']; ?>/login/reset" class="float-right">Forgotten password?</a>
+                        <a href="<?= @$data['base_path']; ?>/login/reset" class="inline-link float-right">Forgotten password?</a>
                         <div class="login-form--field">
                             <button type="submit">Login</button>
                         </div>

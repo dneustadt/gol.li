@@ -1,7 +1,7 @@
 <?php if (@$data['sent'] && empty(@$data['error'])): ?>
     <p>
         You successfully changed your password. Please head over to the
-        <a href="<?= @$data['base_path']; ?>/">home page</a> to log in
+        <a href="<?= @$data['base_path']; ?>/" class="inline-link">home page</a> to log in
         with your new credentials.
     </p>
 <?php else: ?>
