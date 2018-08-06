@@ -391,7 +391,7 @@ fieldset {
     border-bottom: 0;
     & + .tab {
       display: block;
-      padding: 4rem 0 0 0;
+      padding: 4.2rem 0 0 0;
       margin-top: -1px;
       border-top: 1px solid $color-tertiary;
       &.service-form {
@@ -420,6 +420,16 @@ input#services, input#share, input#profile {
   .confirm-checkbox {
     margin: 0.7rem;
   }
+}
+
+#qrcode {
+  max-width: 200px;
+  max-height: 200px;
+  margin: 0 auto 2rem auto;
+}
+
+.create-qrcode {
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 40rem) {

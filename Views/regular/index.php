@@ -74,6 +74,19 @@
             <div class="tab">
                 <div class="row">
                     <div class="column">
+                        <a href="#"
+                           class="button create-qrcode"
+                           data-js="<?= @$data['base_path']; ?>/web/js/dist/qrcode.min.js"
+                           data-url="https://gol.li<?= @$data['base_path']; ?>/<?= @$data['name']; ?>">
+                            Create QR Code for your profile
+                        </a>
+                    </div>
+                    <div class="column">
+                        <div id="qrcode"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
                         <p>Embedd a ready-made widget with links to all your profiles.</p>
                         <pre>
     <?= htmlentities('<iframe src="//gol.li'); ?><?= @$data['base_path']; ?>/<?= @$data['name']; ?><?= htmlentities('/share"
