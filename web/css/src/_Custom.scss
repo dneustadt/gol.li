@@ -460,6 +460,44 @@ input#services, input#share, input#profile {
   }
 }
 
+.is--layout-tiles {
+  section.container {
+    text-align: center;
+  }
+  .row.service.front {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 0;
+    .column {
+      display: none;
+      overflow: visible;
+      padding: 0 1rem;
+      &.actions {
+        display: none;
+      }
+      &.column-25 {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        padding: 0 1rem;
+        .service-icon {
+          width: 100%;
+          height: 100%;
+          background: #fff;
+          border: 1px solid $color-tertiary;
+          padding: 1rem;
+          border-radius: 1rem;
+        }
+        .service-name {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 40rem) {
   .row.service {
     &.front {
