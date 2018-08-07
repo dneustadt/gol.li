@@ -498,6 +498,39 @@ input#services, input#share, input#profile {
   }
 }
 
+.is--theme-dark {
+  main.wrapper {
+    background: #333333;
+    color: #eeeeee;
+    a {
+      color: #dddddd;
+    }
+  }
+  .row.service.front {
+    border-bottom: 1px solid #444444;
+  }
+  .service-name {
+    color: #ffffff;
+  }
+  .service-icon {
+    background: #fff;
+    border-radius: 0.2rem;
+    padding: 0.3rem;
+  }
+  .column.actions {
+    a {
+      background: #fff;
+      padding: 0 0 0 0.4rem;
+      border-radius: 0.3rem;
+    }
+  }
+  &.is--layout-tiles {
+    .row.service.front {
+      border: 0;
+    }
+  }
+}
+
 @media (min-width: 40rem) {
   .row.service {
     &.front {

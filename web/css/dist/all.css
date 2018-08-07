@@ -1121,6 +1121,39 @@ input#services, input#share, input#profile {
   display: none;
 }
 
+.is--theme-dark main.wrapper {
+  background: #333333;
+  color: #eeeeee;
+}
+
+.is--theme-dark main.wrapper a {
+  color: #dddddd;
+}
+
+.is--theme-dark .row.service.front {
+  border-bottom: 1px solid #444444;
+}
+
+.is--theme-dark .service-name {
+  color: #ffffff;
+}
+
+.is--theme-dark .service-icon {
+  background: #fff;
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+}
+
+.is--theme-dark .column.actions a {
+  background: #fff;
+  padding: 0 0 0 0.4rem;
+  border-radius: 0.3rem;
+}
+
+.is--theme-dark.is--layout-tiles .row.service.front {
+  border: 0;
+}
+
 @media (min-width: 40rem) {
   .row.service.front {
     max-width: 60rem;
