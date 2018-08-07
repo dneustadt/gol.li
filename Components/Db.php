@@ -95,7 +95,7 @@ class Db extends \PDO
     /**
      * @param ModelInterface $model
      *
-     * @return ModelInterface
+     * @return ModelInterface|null
      */
     public function find(ModelInterface $model)
     {
@@ -109,10 +109,12 @@ class Db extends \PDO
 
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        foreach ($result as $key => $value) {
-            $method = 'set' . ucfirst($key);
-            if (method_exists($model, $method)) {
-                $model->$method($value);
+        if ($result !== false) {
+            foreach ($result as $key => $value) {
+                $method = 'set' . ucfirst($key);
+                if (method_exists($model, $method)) {
+                    $model->$method($value);
+                }
             }
         }
 

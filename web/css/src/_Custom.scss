@@ -436,6 +436,30 @@ input#services, input#share, input#profile {
   margin-bottom: 2rem;
 }
 
+.settings {
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    &:checked + label {
+      border: 1px solid $highlight-text;
+      background: $color-quinary;
+    }
+  }
+  label {
+    float: left;
+    width: 22%;
+    margin-right: 3%;
+    padding: 2rem 2rem 1.3rem 2rem;
+    border: 1px solid $color-tertiary;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+}
+
 @media (min-width: 40rem) {
   .row.service {
     &.front {

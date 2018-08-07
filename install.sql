@@ -71,3 +71,13 @@ VALUES
 	(41, 'DevRant', 'https://devrant.com/users/%s', '/web/icons/devrant.svg', 29),
 	(42, 'Stack Overflow', 'https://stackoverflow.com/users/%s', '/web/icons/stackoverflow.svg', 30);
 ;
+
+CREATE TABLE `user_settings` (
+  `userID` int(11) unsigned NOT NULL,
+  `layout` varchar(255) NOT NULL,
+  `theme` varchar(255) NOT NULL,
+  PRIMARY KEY (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `user_settings`
+ADD CONSTRAINT settings_user_id FOREIGN KEY (`userID`) REFERENCES `users`(`id`) ON DELETE CASCADE;

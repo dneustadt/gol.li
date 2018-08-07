@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="tab-container">
-            <input type="radio" name="tabs" id="services"<?php if (@empty($data['error'])): ?> checked="checked"<?php endif; ?>>
+            <input type="radio" name="tabs" id="services"<?php if (empty(@$data['error'])): ?> checked="checked"<?php endif; ?>>
             <label for="services" class="tab-header">Services</label>
             <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/update" method="post"
                   class="service-form tab">
@@ -116,9 +116,48 @@
                     </div>
                 </div>
             </div>
-            <input type="radio" name="tabs" id="profile"<?php if (@!empty($data['error'])): ?> checked="checked"<?php endif; ?>>
+            <input type="radio" name="tabs" id="profile"<?php if (!empty(@$data['error'])): ?> checked="checked"<?php endif; ?>>
             <label for="profile" class="tab-header">Profile</label>
             <div class="tab">
+                <form action="<?= @$data['base_path']; ?>/<?= @$data['name']; ?>/updateSettings" method="post">
+                    <div class="row settings">
+                        <div class="column">
+                            <fieldset>
+                                <legend>Layout:</legend>
+                                <input type="radio" name="layout" id="radio-layout-list" value="list"
+                                       <?php if (empty(@$data['settings']['layout']) || $data['settings']['layout'] == 'list'): ?>checked="checked"<?php endif; ?>>
+                                <label for="radio-layout-list">
+                                    <img src="<?= @$data['base_path']; ?>/web/img/list.svg" alt="List">
+                                </label>
+                                <input type="radio" name="layout" id="radio-layout-tiles" value="tiles"
+                                       <?php if (@$data['settings']['layout'] == 'tiles'): ?>checked="checked"<?php endif; ?>>
+                                <label for="radio-layout-tiles">
+                                    <img src="<?= @$data['base_path']; ?>/web/img/tiles.svg" alt="Tiles">
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="column">
+                            <fieldset>
+                                <legend>Theme:</legend>
+                                <input type="radio" name="theme" id="radio-theme-light" value="light"
+                                    <?php if (empty(@$data['settings']['theme']) || $data['settings']['theme'] == 'light'): ?>checked="checked"<?php endif; ?>>
+                                <label for="radio-theme-light">
+                                    <img src="<?= @$data['base_path']; ?>/web/img/light.svg" alt="Light">
+                                </label>
+                                <input type="radio" name="theme" id="radio-theme-dark" value="dark"
+                                    <?php if (@$data['settings']['theme'] == 'dark'): ?>checked="checked"<?php endif; ?>>
+                                <label for="radio-theme-dark">
+                                    <img src="<?= @$data['base_path']; ?>/web/img/dark.svg" alt="Dark">
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <button type="submit" class="float-right">Save</button>
+                        </div>
+                    </div>
+                </form>
                 <div class="row">
                     <div class="column">
                         <fieldset class="profile-form">

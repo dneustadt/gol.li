@@ -4,6 +4,7 @@ namespace Golli\Controllers;
 
 use Golli\Models\User;
 use Golli\Models\UserServices;
+use Golli\Models\UserSettings;
 
 class Regular extends ControllerAbstract
 {
@@ -33,6 +34,8 @@ class Regular extends ControllerAbstract
             }
 
             $services = $this->getServicesWithHandlesByUserId($user->getId(), $isOwner);
+            $settings = new UserSettings();
+            $settings->setUserID($user->getId());
 
             return [
                 'title' => 'gol.li - ' . $user->getUsername(),
@@ -41,6 +44,7 @@ class Regular extends ControllerAbstract
                 'is_owner' => $isOwner,
                 'services' => $services,
                 'error' => $this->getRequest()->get('error'),
+                'settings' => $this->getDb()->find($settings)->getData()
             ];
         }
 
@@ -193,6 +197,26 @@ class Regular extends ControllerAbstract
             }
 
             $this->getDb()->update($user);
+
+            $this->redirect($this->getRequest()->getControllerName(), 'index');
+        }
+    }
+
+    public function updateSettingsAction()
+    {
+        if (!empty($this->getRequest()->getControllerName())) {
+            $userID = $this->getUserIdBySlug();
+
+            if ($userID === false || !$this->isOwner($userID)) {
+                $this->redirect('regular', 'index', 301);
+            }
+
+            $userSettings = new UserSettings();
+            $userSettings->setUserID($userID);
+            $userSettings->setLayout($this->getRequest()->getPost('layout'));
+            $userSettings->setTheme($this->getRequest()->getPost('theme'));
+
+            $this->getDb()->insert($userSettings, true);
 
             $this->redirect($this->getRequest()->getControllerName(), 'index');
         }
