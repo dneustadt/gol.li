@@ -1076,6 +1076,7 @@ input#services, input#share, input#profile {
   padding: 2rem 2rem 1.3rem 2rem;
   border: 1px solid #e1e1e1;
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 @media (min-width: 40rem) {

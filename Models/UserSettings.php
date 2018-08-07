@@ -16,12 +16,12 @@ class UserSettings implements ModelInterface
     /**
      * @var string
      */
-    private $layout;
+    private $layout = 'list';
 
     /**
      * @var string
      */
-    private $theme;
+    private $theme = 'light';
 
     /**
      * @return int

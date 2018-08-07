@@ -24,7 +24,7 @@
         <meta name="msapplication-TileImage" content="<?= @$data['base_path']; ?>/web/img/favicons/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
     </head>
-    <body class="<?= @$data['controller']; ?><?php if (!@$data['is_loggedin']): ?> logged-out<?php endif; ?>">
+    <body class="<?= @$data['controller']; ?><?php if (!@$data['is_loggedin']): ?> logged-out<?php endif; ?><?php if (!@$data['is_owner']): ?><?php if (!empty(@$data['settings']['layout'])): ?> is--layout-<?= @$data['settings']['layout'] ?><?php endif; ?><?php if (!empty(@$data['settings']['theme'])): ?> is--theme-<?= @$data['settings']['theme'] ?><?php endif; ?><?php endif; ?>">
         <?php if (@$data['no_skeleton']): ?>
             <?php include @$data['template']; ?>
             </body></html>
