@@ -499,12 +499,26 @@ input#services, input#share, input#profile {
 }
 
 .is--theme-dark {
+  background: #494949;
   main.wrapper {
     background: #333333;
     color: #eeeeee;
     a {
       color: #dddddd;
     }
+  }
+  footer, header {
+    background: #494949;
+    color: #eeeeee;
+    a {
+      color: #aaaaaa;
+    }
+  }
+  header {
+    border-bottom: 1px solid #000000;
+  }
+  footer {
+    border-top: 1px solid #000000;
   }
   .row.service.front {
     border-bottom: 1px solid #444444;

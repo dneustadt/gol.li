@@ -296,7 +296,7 @@
     <?php else: ?>
         <h2>Hello <?= @$data['username']; ?>!</h2>
         <p>
-            You're logged in. Head over to your <a href="<?= @$data['base_path']; ?>/<?= @$data['username']; ?>">profile</a>
+            You're logged in. Head over to your <a href="<?= @$data['base_path']; ?>/<?= @$data['username']; ?>" class="inline-link">profile</a>
             and manage your social media profiles.
         </p>
         <a href="<?= @$data['base_path']; ?>/logout" class="button">Logout</a>

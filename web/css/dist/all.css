@@ -1121,6 +1121,10 @@ input#services, input#share, input#profile {
   display: none;
 }
 
+.is--theme-dark {
+  background: #494949;
+}
+
 .is--theme-dark main.wrapper {
   background: #333333;
   color: #eeeeee;
@@ -1128,6 +1132,23 @@ input#services, input#share, input#profile {
 
 .is--theme-dark main.wrapper a {
   color: #dddddd;
+}
+
+.is--theme-dark footer, .is--theme-dark header {
+  background: #494949;
+  color: #eeeeee;
+}
+
+.is--theme-dark footer a, .is--theme-dark header a {
+  color: #aaaaaa;
+}
+
+.is--theme-dark header {
+  border-bottom: 1px solid #000000;
+}
+
+.is--theme-dark footer {
+  border-top: 1px solid #000000;
 }
 
 .is--theme-dark .row.service.front {
