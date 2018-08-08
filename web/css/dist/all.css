@@ -1079,7 +1079,7 @@ input#services, input#share, input#profile {
   cursor: pointer;
 }
 
-.is--layout-tiles section.container {
+.is--layout-tiles main.wrapper section.container {
   text-align: center;
   max-width: 60rem;
 }

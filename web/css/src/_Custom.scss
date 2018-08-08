@@ -461,9 +461,11 @@ input#services, input#share, input#profile {
 }
 
 .is--layout-tiles {
-  section.container {
-    text-align: center;
-    max-width: 60rem;
+  main.wrapper {
+    section.container {
+      text-align: center;
+      max-width: 60rem;
+    }
   }
   .row.service.front {
     display: inline-block;
