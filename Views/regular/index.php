@@ -70,7 +70,7 @@
                 <button type="submit" class="float-right">Save</button>
             </form>
             <input type="radio" name="tabs" id="share">
-            <label class="tab-header" for="share">Share & Embedd</label>
+            <label class="tab-header" for="share">Share</label>
             <div class="tab">
                 <div class="row">
                     <div class="column">
