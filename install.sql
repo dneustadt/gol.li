@@ -72,7 +72,7 @@ VALUES
 	(42, 'Stack Overflow', 'https://stackoverflow.com/users/%s', '/web/icons/stackoverflow.svg', 30),
 	(43, 'Tinder', 'https://gotinder.com/@%s', '/web/icons/tinder.svg', 31),
 	(44, 'YouTube (Channel)', 'https://youtube.com/channel/%s', '/web/icons/youtube.svg', 3),
-	(45, 'TikTok', 'https://www.tiktok.com/@%s', '/web/icons/tiktok.svg', 32);
+	(45, 'TikTok', 'https://tiktok.com/@%s', '/web/icons/tiktok.svg', 32);
 
 CREATE TABLE `user_settings` (
   `userID` int(11) unsigned NOT NULL,
