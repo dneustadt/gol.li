@@ -130,10 +130,54 @@ class Regular extends ControllerAbstract
             return [
                 'services' => $services,
                 'no_skeleton' => true,
+                'bg_color' => $this->getHexParam('bg'),
+                'border_color' => $this->getHexParam('b'),
+                'font_color' => $this->getFontColor(),
             ];
         }
 
         return $this->redirect('regular', 'index', 301);
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return mixed|null
+     */
+    private function getHexParam($key)
+    {
+        $value = $this->getRequest()->get($key);
+
+        if ($value && ctype_xdigit($value) && (strlen($value) === 6 || strlen($value) === 3)) {
+            return '#' . $value;
+        }
+
+        return null;
+    }
+
+    /**
+     * @return mixed|null
+     */
+    private function getFontColor()
+    {
+        $value = $this->getHexParam('bg');
+
+        if ($value) {
+            $hex = substr($value, 1);
+            $length = strlen($hex) === 3 ? 1 : 2;
+
+            $r = hexdec(substr($hex, 0, $length));
+            $g = hexdec(substr($hex, $length, $length));
+            $b = hexdec(substr($hex, $length * 2, $length));
+
+            if ($r + $g + $b > ($length === 1 ? 22 : 382)) {
+                return '#000';
+            } else {
+                return '#fff';
+            }
+        }
+
+        return null;
     }
 
     public function updateProfileAction()

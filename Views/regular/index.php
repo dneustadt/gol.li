@@ -87,7 +87,13 @@
                 </div>
                 <div class="row">
                     <div class="column">
-                        <p>Embedd a ready-made widget with links to all your profiles.</p>
+                        <p>
+                            Embed a ready-made widget with links to all your profiles.<br>
+                            <small>
+                                Optionally use the parameters <em>bg</em> and <em>b</em> on the endpoint passing 3 or 6
+                                characters hex values to customize background and border color of the widget respectively.
+                            </small>
+                        </p>
                         <pre>
     <?= htmlentities('<iframe src="//gol.li'); ?><?= @$data['base_path']; ?>/<?= @$data['name']; ?><?= htmlentities('/share"
             style="width: 320px; 
@@ -257,7 +263,7 @@
                     <li>All of the most important social networks included</li>
                     <li>Collect &amp; manage your profile pages</li>
                     <li>Get a short, memorable URL to your social network hub</li>
-                    <li>Easily embedd a widget of your hub on your website, or...</li>
+                    <li>Easily embed a widget of your hub on your website, or...</li>
                     <li>...fetch the raw data as JSON for use in your own app</li>
                 </ul>
                 <a href="<?= @$data['base_path']; ?>/demo" class="button demo-link">Demo<br>Profile</a>
