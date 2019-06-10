@@ -42,7 +42,7 @@ VALUES
 	(10, 'Facebook', 'https://facebook.com/%s', '/web/icons/facebook.svg', 0),
 	(11, 'Twitter', 'https://twitter.com/%s', '/web/icons/twitter.svg', 1),
 	(12, 'Instagram', 'https://instagram.com/%s', '/web/icons/instagram.svg', 2),
-	(14, 'YouTube', 'https://youtube.com/user/%s', '/web/icons/youtube.svg', 3),
+	(14, 'YouTube (User)', 'https://youtube.com/user/%s', '/web/icons/youtube.svg', 3),
 	(15, 'Tumblr', 'https://%s.tumblr.com/', '/web/icons/tumblr.svg', 4),
 	(16, 'Google+', 'https://plus.google.com/%s', '/web/icons/googleplus.svg', 5),
 	(17, 'Snapchat', 'https://snapchat.com/add/%s', '/web/icons/snapchat.svg', 6),
@@ -69,8 +69,10 @@ VALUES
 	(38, 'Kickstarter', 'https://kickstarter.com/profile/%s', '/web/icons/kickstarter.svg', 27),
 	(40, 'GitHub', 'https://github.com/%s', '/web/icons/github.svg', 28),
 	(41, 'DevRant', 'https://devrant.com/users/%s', '/web/icons/devrant.svg', 29),
-	(42, 'Stack Overflow', 'https://stackoverflow.com/users/%s', '/web/icons/stackoverflow.svg', 30);
-;
+	(42, 'Stack Overflow', 'https://stackoverflow.com/users/%s', '/web/icons/stackoverflow.svg', 30),
+	(43, 'Tinder', 'https://gotinder.com/@%s', '/web/icons/tinder.svg', 31),
+	(44, 'YouTube (Channel)', 'https://youtube.com/channel/%s', '/web/icons/youtube.svg', 3),
+	(45, 'TikTok', 'https://www.tiktok.com/@%s', '/web/icons/tiktok.svg', 32);
 
 CREATE TABLE `user_settings` (
   `userID` int(11) unsigned NOT NULL,
